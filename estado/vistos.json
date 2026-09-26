@@ -1,1 +1,33 @@
-{}
+{
+ "fallas": {
+  "delltechnologies": 1,
+  "mercadolibre": 1,
+  "microsoft": 1
+ },
+ "ultima_corrida": "2026-09-26",
+ "vistos": {
+  "amazon": {
+   "10512594": "2026-09-26"
+  },
+  "cocacola": {},
+  "generalmotors": {},
+  "intel": {},
+  "kimberlyclark": {},
+  "mastercard": {},
+  "mondelez": {},
+  "nike": {},
+  "novartis": {},
+  "nvidia": {},
+  "oracle": {},
+  "paypal": {},
+  "pfizer": {},
+  "salesforce": {},
+  "sanofi": {},
+  "servicenow": {},
+  "shell": {},
+  "visa": {},
+  "vmware": {},
+  "warnerbros": {},
+  "workday": {}
+ }
+}
