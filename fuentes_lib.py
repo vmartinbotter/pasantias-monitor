@@ -131,6 +131,15 @@ def workday(cfg, keywords):
     return out
 
 
+def workday_detalle(cfg, job):
+    """Para avisos con "2 Locations": trae todas las ubicaciones del aviso."""
+    host, tenant, site = _parse_workday(cfg["url"])
+    info = _get(f"https://{host}/wday/cxs/{tenant}/{site}{job.id}").json().get("jobPostingInfo", {})
+    locs = [info.get("location", "")] + list(info.get("additionalLocations") or [])
+    pais = (info.get("country") or {}).get("descriptor", "")
+    return " | ".join(x for x in locs + [pais] if x)
+
+
 # ---------------------------------------------------------------- Eightfold (Microsoft, Mercado Libre, ...)
 def eightfold(cfg, keywords):
     host, domain = cfg["host"], cfg["domain"]

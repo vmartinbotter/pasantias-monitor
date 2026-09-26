@@ -30,7 +30,7 @@ from pathlib import Path
 import requests
 import yaml
 
-from fuentes_lib import ADAPTERS, NO_LOCATION
+from fuentes_lib import ADAPTERS, NO_LOCATION, workday_detalle
 
 ROOT = Path(__file__).parent
 ESTADO = ROOT / "estado" / "vistos.json"
@@ -141,6 +141,26 @@ def notificar(titulo: str, cuerpo_html: str, cuerpo_txt: str):
         print(f"\n=== {titulo} ===\n{cuerpo_txt}")
 
 
+# ------------------------------------------------------------------ Ubicación
+MULTI = re.compile(r"^\d+\s|multiple|varias|several", re.I)
+
+
+def ubicacion_ok(src, job, loc_re) -> bool:
+    """Estricto: si no se puede saber dónde es, se descarta."""
+    if src["tipo"] in NO_LOCATION or src.get("sin_filtro_ubicacion"):
+        return True
+    loc = (job.location or "").strip()
+    if not loc or MULTI.search(loc):
+        loc = ""
+        if src["tipo"] == "workday":
+            try:
+                loc = workday_detalle(src, job)
+            except Exception as e:  # noqa: BLE001
+                print(f"    [warn] no pude ver ubicaciones de {job.title}: {e}", file=sys.stderr)
+        job.location = loc
+    return bool(loc) and bool(loc_re.search(loc))
+
+
 # ------------------------------------------------------------------ Main
 def main():
     ap = argparse.ArgumentParser()
@@ -180,16 +200,15 @@ def main():
             continue
         _, src = fuentes[key]
         srcs = src if isinstance(src, list) else [src]
-        encontrados = []
+        encontrados, descartados = [], []
         try:
             for s in srcs:
                 jobs = ADAPTERS[s["tipo"]](s, keywords)
                 for j in jobs:
                     if not inc.search(j.title) or (exc and exc.search(j.title)):
                         continue
-                    if s["tipo"] not in NO_LOCATION and not s.get("sin_filtro_ubicacion") \
-                            and j.location and not re.match(r"^\d+\s", j.location) \
-                            and not loc_re.search(j.location):  # "3 Locations" = no sabemos
+                    if not ubicacion_ok(s, j, loc_re):
+                        descartados.append(f"{j.title} [{j.location or 'sin ubicación'}]")
                         continue
                     encontrados.append(j)
             fallas.pop(key, None)
@@ -202,7 +221,10 @@ def main():
 
         ya = vistos.setdefault(key, {})
         frescos = [j for j in encontrados if j.id not in ya]
-        print(f"{nombre}: {len(encontrados)} pasantías, {len(frescos)} nuevas")
+        print(f"{nombre}: {len(encontrados)} pasantías en BA, {len(frescos)} nuevas, "
+              f"{len(descartados)} descartadas por ubicación")
+        for j in frescos:
+            print(f"    + {j.title} [{j.location}]")
         for j in frescos:
             ya[j.id] = date.today().isoformat()
             nuevos.append((nombre, j))

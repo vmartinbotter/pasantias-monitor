@@ -19,7 +19,7 @@ filtros:
   # ...y NO matchear esto
   excluir: \b(senior|sr\.?|lead|manager|director|head of|principal)\b
 
-    # Si el aviso trae ubicación, tiene que matchear esto.
+  # Si el aviso trae ubicación, tiene que matchear esto.
   # Solo Buenos Aires (CABA + GBA). También acepta avisos que dicen solo "Argentina"
   # (sin ciudad), porque casi siempre son en Buenos Aires.
   ubicacion: >-
