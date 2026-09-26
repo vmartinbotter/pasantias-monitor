@@ -126,13 +126,17 @@ def notificar(titulo: str, cuerpo_html: str, cuerpo_txt: str):
                 actual = ""
             actual += linea + "\n"
         partes.append(actual)
+        phone = re.sub(r"[^0-9]", "", phone)  # CallMeBot quiere solo dígitos: 549...
         for p in partes:
             r = requests.get("https://api.callmebot.com/whatsapp.php", timeout=30,
-                             params={"phone": phone, "text": p, "apikey": apikey})
-            if not r.ok:
-                print("WhatsApp error:", r.text[:200], file=sys.stderr)
+                             params={"phone": phone, "text": p, "apikey": apikey.strip()})
+            # CallMeBot a veces responde 200 aunque falle, así que mostramos siempre la respuesta
+            resp = re.sub(r"<[^>]+>", " ", r.text)
+            print(f"WhatsApp [{r.status_code}]:", " ".join(resp.split())[:300])
             time.sleep(3)  # CallMeBot limita la frecuencia de mensajes
         enviado = True
+    if not (phone and apikey):
+        print("WhatsApp: no configurado (faltan secrets WHATSAPP_PHONE / WHATSAPP_APIKEY)")
     if not enviado:
         print(f"\n=== {titulo} ===\n{cuerpo_txt}")
 
