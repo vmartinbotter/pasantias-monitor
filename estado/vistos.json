@@ -1,1 +1,87 @@
-{}
+{
+ "fallas": {
+  "delltechnologies": 1,
+  "mercadolibre": 1,
+  "microsoft": 1
+ },
+ "ultima_corrida": "2026-09-26",
+ "vistos": {
+  "amazon": {
+   "10512594": "2026-09-26"
+  },
+  "cocacola": {},
+  "generalmotors": {
+   "/job/Arlington-Texas-United-States-of-America/XMLNAME-2027-Summer-Intern---Manufacturing-Paint-Process-Engineer_JR-202619455": "2026-09-26",
+   "/job/Arlington-Texas-United-States-of-America/XMLNAME-2027-Summer-Intern---Manufacturing-Supply-Chain_JR-202619467": "2026-09-26",
+   "/job/Arlington-Texas-United-States-of-America/XMLNAME-2027-Summer-Manufacturing-Intern---Mechanical-Engineer_JR-202619411": "2026-09-26",
+   "/job/Bedford-Indiana-United-States-of-America/XMLNAME-2027-Summer-Intern---Manufacturing-Metallurgist_JR-202619481": "2026-09-26",
+   "/job/Bedford-Indiana-United-States-of-America/XMLNAME-2027-Summer-Intern---Manufacturing-Quality-Engineer_JR-202619307": "2026-09-26",
+   "/job/Bowling-Green-Kentucky-United-States-of-America/XMLNAME-2027-Summer-Intern---Manufacturing-Industrial-Engineer-_JR-202619456": "2026-09-26",
+   "/job/GM-Global-Technical-Center---Cole-Engineering-Center-Podium/XMLNAME-2027-Summer-Intern---Warehouse-Operations-Intern_JR-202619684": "2026-09-26",
+   "/job/Warren-Michigan-United-States-of-America/XMLNAME-2027-Summer-Intern---Clay-Sculpting_JR-202619287": "2026-09-26",
+   "/job/Warren-Michigan-United-States-of-America/XMLNAME-2027-Summer-Intern---Creative-Design--Interior-Exterior-_JR-202619314": "2026-09-26",
+   "/job/Warren-Michigan-United-States-of-America/XMLNAME-2027-Summer-Intern---Digital-Sculpting_JR-202619286": "2026-09-26",
+   "/job/Warren-Michigan-United-States-of-America/XMLNAME-2027-Summer-Intern---General-Motors-Economics-Intern_JR-202619691": "2026-09-26"
+  },
+  "intel": {
+   "/job/PRC-Shanghai/Operations-Research-Engineer-Intern_JR0286945": "2026-09-26",
+   "/job/US-Arizona-Phoenix/Advanced-Packaging-Integration-and-Simulation-Intern_JR0287009": "2026-09-26",
+   "/job/US-California-Santa-Clara/Sales-and-Marketing---Intern--Bachelor-s_JR0286838": "2026-09-26",
+   "/job/US-California-Santa-Clara/Sales-and-Marketing---Intern--Graduate_JR0286839": "2026-09-26",
+   "/job/US-California-Santa-Clara/Technical-Sales---Intern--Bachelor-s_JR0286835": "2026-09-26",
+   "/job/US-California-Santa-Clara/Technical-Sales---Intern--Graduate_JR0286831": "2026-09-26",
+   "/job/US-Oregon-Hillsboro/Facilities-Services---Intern--Bachelor-s_JR0286826": "2026-09-26",
+   "/job/US-Oregon-Hillsboro/Manufacturing-and-Process-Development---Intern--Bachelor-s_JR0286825": "2026-09-26",
+   "/job/US-Oregon-Hillsboro/Manufacturing-and-Process-Development---Intern--Graduate_JR0286833": "2026-09-26",
+   "/job/US-Oregon-Hillsboro/Silicon-Hardware-Engineering---Intern--Bachelor-s_JR0286829": "2026-09-26",
+   "/job/US-Oregon-Hillsboro/Silicon-Hardware-Engineering---Intern--Graduate_JR0286830": "2026-09-26",
+   "/job/US-Oregon-Hillsboro/Software-Engineering---Intern--Bachelor-s_JR0286834": "2026-09-26",
+   "/job/US-Oregon-Hillsboro/Software-Engineering---Intern--Graduate_JR0286836": "2026-09-26"
+  },
+  "kimberlyclark": {},
+  "mastercard": {},
+  "mondelez": {
+   "/job/Base-de-Talentos-Mondelz-International_R-113629": "2026-09-26",
+   "/job/Business-Unit-Head-Office---East-Hanover-USA/Manufacturing-Intern--Process-Engineering_R-175409": "2026-09-26",
+   "/job/Ho-Chi-Minh-Vietnam/Sales-Capability-Intern_R-177715": "2026-09-26",
+   "/job/Shah-Alam-Malaysia/Taste-The-Future-Management-Trainee-Program---Supply-Chain_R-164856": "2026-09-26",
+   "/job/Sofia-Bulgaria/Taste-The-Future---IT-Procurement-Internship--m-f-x-_R-177264-1": "2026-09-26",
+   "/job/Sorocaba-So-Paulo-Brazil/Aprendiz-de-Merchandising-Sorocaba-SP_R-166977": "2026-09-26",
+   "/job/Sorocaba-So-Paulo-Brazil/Aprendiz-de-Merchandising-Sorocaba-SP_R-175422": "2026-09-26",
+   "/job/Sorocaba-So-Paulo-Brazil/Aprendiz-de-Merchandising-Sorocaba-SP_R-177627": "2026-09-26"
+  },
+  "nike": {
+   "/job/Beaverton-Oregon/NIKE--Inc-Transportation---Logistics-Undergraduate-Internship_R-92081": "2026-09-26"
+  },
+  "novartis": {},
+  "nvidia": {
+   "/job/China-Beijing/AI-Infrastructure-and-Frameworks-Intern--Cosmos-Lab---2027_JR2025559": "2026-09-26",
+   "/job/China-Shanghai/Software-Engineering-Intern--NCCL---2026_JR2022645": "2026-09-26"
+  },
+  "oracle": {},
+  "paypal": {},
+  "pfizer": {
+   "/job/United-States---Pennsylvania---Erie/Internal-Medicine-Health---Science-System-Specialist---Erie--PA_4964251-1": "2026-09-26"
+  },
+  "salesforce": {},
+  "sanofi": {},
+  "servicenow": {},
+  "shell": {
+   "/job/Amsterdam/Shell-Assessed-Internship-Programme-2027---Netherlands_R205052": "2026-09-26",
+   "/job/Beijing/Shell-Assessed-Internship-Programme-2027---China_R205120": "2026-09-26",
+   "/job/China-World-Trade-Centre/Shell-Graduate-Programme-2027---China_R205121": "2026-09-26",
+   "/job/Miri/Shell-Graduate-Program-2027---Malaysia_R205046": "2026-09-26",
+   "/job/Qatar---Ras-Laffan/Shell-Graduate-Programme-2026---Qatar_R182165": "2026-09-26",
+   "/job/Rotterdam/Shell-Graduate-Programme-2027---Netherlands_R205055": "2026-09-26",
+   "/job/Scotford/Shell-Assessed-Internship-Programme--January-May-2027----Programme-de-stages-valus-de-Shell--janvier---mai-2027----Canada_R205117": "2026-09-26",
+   "/job/Texas---Houston---Woodcreek/Shell-Assessed-Internship-Program-2027---United-States_R205156": "2026-09-26",
+   "/job/Texas---Houston---Woodcreek/Shell-Graduate-Program-2027---United-States_R205157-1": "2026-09-26"
+  },
+  "visa": {},
+  "vmware": {
+   "/job/USA-NY-Melville/Internal-Audit-IT-Senior_R026485": "2026-09-26"
+  },
+  "warnerbros": {},
+  "workday": {}
+ }
+}
