@@ -229,3 +229,47 @@ ADAPTERS = {
 
 # Tipos que devuelven TODOS los avisos y no tienen ubicación estructurada confiable
 NO_LOCATION = {"html"}
+
+
+# ---------------------------------------------------------------- Autodetección
+def _slugs(nombre: str):
+    import unicodedata
+    base = unicodedata.normalize("NFKD", nombre).encode("ascii", "ignore").decode().strip()
+    cands = [
+        re.sub(r"[^a-z0-9]", "", base.lower()),
+        re.sub(r"[^a-z0-9]+", "-", base.lower()).strip("-"),
+        re.sub(r"[^A-Za-z0-9]", "", base),  # SmartRecruiters suele usar CamelCase
+    ]
+    return [c for i, c in enumerate(cands) if len(c) >= 3 and c not in cands[:i]]
+
+
+def _cuantos(url, clave, **kw):
+    try:
+        r = requests.get(url, headers=HEADERS, timeout=15, **kw)
+        if not r.ok:
+            return 0
+        d = r.json()
+        if clave == "list":
+            return len(d) if isinstance(d, list) else 0
+        if clave == "totalFound":
+            return int(d.get("totalFound") or 0)
+        return len(d.get(clave) or [])
+    except Exception:  # noqa: BLE001
+        return 0
+
+
+def autodetectar(nombre: str):
+    """Prueba Greenhouse / Lever / Ashby / SmartRecruiters. Devuelve la fuente con más
+    avisos, o None. Solo acepta fuentes con al menos 1 aviso publicado."""
+    mejor, n_mejor = None, 0
+    for s in _slugs(nombre):
+        pruebas = [
+            ({"tipo": "greenhouse", "slug": s}, _cuantos(f"https://boards-api.greenhouse.io/v1/boards/{s}/jobs", "jobs")),
+            ({"tipo": "lever", "slug": s}, _cuantos(f"https://api.lever.co/v0/postings/{s}", "list", params={"mode": "json"})),
+            ({"tipo": "ashby", "slug": s}, _cuantos(f"https://api.ashbyhq.com/posting-api/job-board/{s}", "jobs")),
+            ({"tipo": "smartrecruiters", "slug": s}, _cuantos(f"https://api.smartrecruiters.com/v1/companies/{s}/postings", "totalFound", params={"limit": 1})),
+        ]
+        for src, n in pruebas:
+            if n > n_mejor:
+                mejor, n_mejor = src, n
+    return mejor

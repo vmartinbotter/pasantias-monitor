@@ -30,11 +30,14 @@ from pathlib import Path
 import requests
 import yaml
 
-from fuentes_lib import ADAPTERS, NO_LOCATION, workday_detalle
+from concurrent.futures import ThreadPoolExecutor
+
+from fuentes_lib import ADAPTERS, NO_LOCATION, autodetectar, workday_detalle
 
 ROOT = Path(__file__).parent
 ESTADO = ROOT / "estado" / "vistos.json"
 DIAS_FALLA_PARA_AVISAR = 3
+DIAS_REINTENTO_AUTODETECCION = 7
 
 
 def norm(s: str) -> str:
@@ -71,17 +74,39 @@ def empresas_del_sheet(ws, excluir_estados):
     return out, col
 
 
-def marcar_en_sheet(ws, col, fila_nro, fila, link):
-    """Completa solo celdas vacías: Estado, Programa abierto, Link."""
-    cambios = []
-    def set_si_vacio(header, valor):
-        if header in col and not fila.get(header, "").strip():
-            cambios.append({"range": gspread_a1(fila_nro, col[header] + 1), "values": [[valor]]})
-    set_si_vacio("Estado", "Programa abierto")
-    set_si_vacio("Programa de pasantías abierto", "Sí")
-    set_si_vacio("Vía / Link de postulación", link)
-    if cambios:
-        ws.batch_update(cambios, value_input_option="USER_ENTERED")
+COL_ESTADO, COL_PROG, COL_LINK = "Estado", "Programa de pasantías abierto", "Vía / Link de postulación"
+ATS_DOM = re.compile(r"myworkdayjobs\.com|greenhouse\.io|lever\.co|smartrecruiters\.com|ashbyhq\.com|"
+                     r"amazon\.jobs|eightfold\.ai|careers\.microsoft\.com|oraclecloud\.com", re.I)
+
+
+def cambios_sheet(col, fila_nro, fila, encontrados):
+    """Mantiene el Sheet al día con lo que está abierto HOY en Buenos Aires.
+
+    - Hay pasantías: completa Estado ("Programa abierto"), "Sí" y el link, solo si
+      están vacíos o si los había puesto el bot (Estado = "Programa abierto").
+    - No hay más: si el bot la había marcado (Estado = "Programa abierto" y el link
+      es de un sitio de empleos o está vacío), la desmarca.
+    Nunca toca filas donde vos cambiaste el Estado (CV enviado, Entrevista, etc.).
+    """
+    est = fila.get(COL_ESTADO, "").strip()
+    prog = fila.get(COL_PROG, "").strip()
+    link = fila.get(COL_LINK, "").strip()
+    link_del_bot = not link or bool(ATS_DOM.search(link))
+    nuevo = {}
+    if encontrados:
+        if est in ("", "Programa abierto"):
+            if not est:
+                nuevo[COL_ESTADO] = "Programa abierto"
+            if not prog:
+                nuevo[COL_PROG] = "Sí"
+            if link_del_bot and link not in {j.url for j in encontrados}:
+                nuevo[COL_LINK] = encontrados[0].url
+        elif not prog:
+            nuevo[COL_PROG] = "Sí"
+    elif est == "Programa abierto" and link_del_bot:
+        nuevo = {COL_ESTADO: "", COL_PROG: "", COL_LINK: ""}
+    return [{"range": gspread_a1(fila_nro, col[h] + 1), "values": [[v]]}
+            for h, v in nuevo.items() if h in col and fila.get(h, "").strip() != v]
 
 
 def gspread_a1(row, col):
@@ -193,7 +218,25 @@ def main():
     fallas = estado.setdefault("fallas", {})
     estado["ultima_corrida"] = date.today().isoformat()  # mantiene vivo el cron de GitHub
 
-    nuevos, sin_fuente, errores = [], [], []
+    # ---- empresas nuevas del Sheet sin fuente: intento detectarlas solas
+    auto = estado.setdefault("auto_fuentes", {})
+    hoy = date.today()
+    pendientes = [(k, v[0]) for k, v in empresas.items() if k not in fuentes and (
+        k not in auto or (not auto[k].get("fuente") and
+                          (hoy - date.fromisoformat(auto[k]["fecha"])).days >= DIAS_REINTENTO_AUTODETECCION))]
+    detectadas = []
+    if pendientes:
+        print(f"Autodetectando {len(pendientes)} empresas sin fuente...")
+        with ThreadPoolExecutor(8) as pool:
+            for (k, nombre), src in zip(pendientes, pool.map(lambda p: autodetectar(p[1]), pendientes)):
+                auto[k] = {"fuente": src, "fecha": hoy.isoformat()}
+                if src:
+                    detectadas.append(f"{nombre}: {src['tipo']} / {src['slug']}")
+    for k, a in auto.items():
+        if a.get("fuente") and k not in fuentes:
+            fuentes[k] = (k, a["fuente"])
+
+    nuevos, sin_fuente, errores, cambios = [], [], [], []
     for key, (nombre, fila_nro, fila) in sorted(empresas.items()):
         if key not in fuentes:
             sin_fuente.append(nombre)
@@ -228,14 +271,20 @@ def main():
         for j in frescos:
             ya[j.id] = date.today().isoformat()
             nuevos.append((nombre, j))
-        if frescos and ws and fila_nro and cfg.get("actualizar_sheet") and not args.dry_run:
-            try:
-                marcar_en_sheet(ws, col, fila_nro, fila, frescos[0].url)
-            except Exception as e:  # noqa: BLE001
-                print(f"[WARN] no pude actualizar el Sheet para {nombre}: {e}", file=sys.stderr)
+        if ws and fila_nro and cfg.get("actualizar_sheet"):
+            c = cambios_sheet(col, fila_nro, fila, encontrados)
+            if c:
+                print(f"    Sheet: {', '.join(x['range'] + '=' + repr(x['values'][0][0])[:40] for x in c)}")
+            cambios += c
+
+    if cambios and not args.dry_run:
+        try:
+            ws.batch_update(cambios, value_input_option="USER_ENTERED")
+        except Exception as e:  # noqa: BLE001
+            print(f"[WARN] no pude actualizar el Sheet: {e}", file=sys.stderr)
 
     # ---- armar mensaje
-    if nuevos or errores:
+    if nuevos or errores or detectadas:
         html_lines, txt_lines = [], []
         actual = None
         for nombre, j in nuevos:
@@ -246,12 +295,18 @@ def main():
             loc = f" — {escape(j.location)}" if j.location else ""
             html_lines.append(f'• <a href="{escape(j.url)}">{escape(j.title)}</a>{loc}')
             txt_lines.append(f"  - {j.title}{' — ' + j.location if j.location else ''}\n    {j.url}")
+        if detectadas:
+            html_lines.append("\n🔎 <b>Empresas nuevas que ahora monitoreo</b> (revisá que sea la empresa correcta):")
+            html_lines += [f"• {escape(d)}" for d in detectadas]
+            txt_lines.append("\nEmpresas nuevas que ahora monitoreo:")
+            txt_lines += [f"  - {d}" for d in detectadas]
         if errores:
             html_lines.append("\n⚠️ <b>Fuentes que vienen fallando</b> (revisá fuentes.yaml):")
             html_lines += [f"• {escape(e)}" for e in errores]
             txt_lines.append("\nFuentes que vienen fallando:")
             txt_lines += [f"  - {e}" for e in errores]
-        titulo = (f"🎓 {len(nuevos)} pasantía(s) nueva(s)" if nuevos else "Monitor de pasantías: errores")
+        titulo = (f"🎓 {len(nuevos)} pasantía(s) nueva(s) en Buenos Aires" if nuevos
+                  else "Monitor de pasantías: novedades")
         if args.dry_run:
             print(f"\n[dry-run] {titulo}\n" + "\n".join(txt_lines))
         else:
