@@ -55,7 +55,7 @@ empresas:
   Workday:           {tipo: workday, url: "https://workday.wd5.myworkdayjobs.com/Workday"}
   NVIDIA:            {tipo: workday, url: "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite"}
   Intel:             {tipo: workday, url: "https://intel.wd1.myworkdayjobs.com/External"}
-  Dell Technologies: {tipo: workday, url: "https://dell.wd1.myworkdayjobs.com/External"}
+  #Dell Technologies: {tipo: workday, url: "https://dell.wd1.myworkdayjobs.com/External"}
   Mastercard:        {tipo: workday, url: "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers"}
   Paypal:            {tipo: workday, url: "https://paypal.wd1.myworkdayjobs.com/jobs"}
   Pfizer:            {tipo: workday, url: "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers"}
@@ -70,13 +70,13 @@ empresas:
   VMware:            {tipo: workday, url: "https://broadcom.wd1.myworkdayjobs.com/External_Career"}  # hoy es Broadcom
 
   # --- SmartRecruiters ---
-  Visa:              {tipo: smartrecruiters, slug: Visa}
+  #Visa:              {tipo: smartrecruiters, slug: Visa}
   ServiceNow:        {tipo: smartrecruiters, slug: ServiceNow}
 
   # --- Otros sistemas ---
   Amazon:            {tipo: amazon, location: Argentina}
-  Microsoft:         {tipo: eightfold, host: apply.careers.microsoft.com, domain: microsoft.com, location: Argentina}
-  Mercado Libre:     {tipo: eightfold, host: mercadolibre.eightfold.ai, domain: mercadolibre.com, location: Argentina}
+  #Microsoft:         {tipo: eightfold, host: apply.careers.microsoft.com, domain: microsoft.com, location: Argentina}
+  #Mercado Libre:     {tipo: eightfold, host: mercadolibre.eightfold.ai, domain: mercadolibre.com, location: Argentina}
   # Mercado Pago publica en el mismo portal que Mercado Libre, así que no lo duplico
   Oracle:            {tipo: oracle_hcm, host: eeho.fa.us2.oraclecloud.com, site: CX_45001}
 
