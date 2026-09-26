@@ -1,0 +1,4 @@
+__pycache__/
+*.json
+!estado/vistos.json
+.env

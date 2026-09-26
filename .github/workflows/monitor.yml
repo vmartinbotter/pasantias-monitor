@@ -1,0 +1,58 @@
+name: Monitor de pasantías
+
+on:
+  schedule:
+    - cron: "17 11 * * *"   # todos los días 08:17 hora Argentina (11:17 UTC)
+  workflow_dispatch:         # botón "Run workflow" para correrlo a mano
+    inputs:
+      modo:
+        description: "normal | verificar | detectar"
+        default: normal
+
+permissions:
+  contents: write            # para guardar estado/vistos.json en el repo
+
+concurrency: monitor
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      SHEET_ID: ${{ secrets.SHEET_ID }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      SMTP_USER: ${{ secrets.SMTP_USER }}
+      SMTP_PASS: ${{ secrets.SMTP_PASS }}
+      MAIL_TO: ${{ secrets.MAIL_TO }}
+      WHATSAPP_PHONE: ${{ secrets.WHATSAPP_PHONE }}
+      WHATSAPP_APIKEY: ${{ secrets.WHATSAPP_APIKEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Verificar fuentes
+        if: github.event.inputs.modo == 'verificar'
+        run: python detectar_ats.py --verificar
+
+      - name: Detectar ATS de empresas sin fuente
+        if: github.event.inputs.modo == 'detectar'
+        run: python detectar_ats.py
+
+      - name: Buscar pasantías nuevas
+        if: github.event_name == 'schedule' || github.event.inputs.modo == 'normal'
+        run: python monitor.py
+
+      - name: Guardar estado
+        if: github.event_name == 'schedule' || github.event.inputs.modo == 'normal'
+        run: |
+          git config user.name "pasantias-bot"
+          git config user.email "pasantias-bot@users.noreply.github.com"
+          git add estado/vistos.json
+          git diff --cached --quiet || git commit -m "estado $(date -u +%F)"
+          git push
