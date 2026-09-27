@@ -124,6 +124,10 @@
     "tipo": "greenhouse"
    }
   },
+  "delltechnologies": {
+   "fecha": "2026-09-27",
+   "fuente": null
+  },
   "deloitte": {
    "fecha": "2026-09-26",
    "fuente": null
@@ -279,6 +283,10 @@
    "fecha": "2026-09-26",
    "fuente": null
   },
+  "mercadolibre": {
+   "fecha": "2026-09-27",
+   "fuente": null
+  },
   "mercadopago": {
    "fecha": "2026-09-26",
    "fuente": null
@@ -301,6 +309,10 @@
     "slug": "metlife",
     "tipo": "lever"
    }
+  },
+  "microsoft": {
+   "fecha": "2026-09-27",
+   "fuente": null
   },
   "molinos": {
    "fecha": "2026-09-26",
@@ -504,6 +516,10 @@
    "fecha": "2026-09-26",
    "fuente": null
   },
+  "visa": {
+   "fecha": "2026-09-27",
+   "fuente": null
+  },
   "volkswagen": {
    "fecha": "2026-09-26",
    "fuente": null
@@ -534,7 +550,7 @@
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-09-26",
+ "ultima_corrida": "2026-09-27",
  "vistos": {
   "aleph": {},
   "amazon": {
