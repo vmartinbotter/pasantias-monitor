@@ -550,7 +550,7 @@
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-01",
+ "ultima_corrida": "2026-10-02",
  "vistos": {
   "aleph": {},
   "amazon": {
@@ -581,7 +581,9 @@
   "oracle": {},
   "paypal": {},
   "pfizer": {},
-  "salesforce": {},
+  "salesforce": {
+   "/job/Argentina---Buenos-Aires/LATAM-Internship-Program---Sales-Strategy-Intern--Argentina-_JR362431-1": "2026-10-02"
+  },
   "sanofi": {},
   "servicenow": {},
   "shell": {},
