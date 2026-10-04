@@ -78,6 +78,13 @@
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "boschgroup": {
+   "fecha": "2026-10-04",
+   "fuente": {
+    "slug": "boschgroup",
+    "tipo": "smartrecruiters"
+   }
+  },
   "bristolmyerssquibb": {
    "fecha": "2026-10-03",
    "fuente": null
@@ -125,7 +132,7 @@
    }
   },
   "delltechnologies": {
-   "fecha": "2026-09-27",
+   "fecha": "2026-10-04",
    "fuente": null
   },
   "deloitte": {
@@ -284,7 +291,7 @@
    "fuente": null
   },
   "mercadolibre": {
-   "fecha": "2026-09-27",
+   "fecha": "2026-10-04",
    "fuente": null
   },
   "mercadopago": {
@@ -311,7 +318,7 @@
    }
   },
   "microsoft": {
-   "fecha": "2026-09-27",
+   "fecha": "2026-10-04",
    "fuente": null
   },
   "molinos": {
@@ -445,6 +452,13 @@
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "sezzle": {
+   "fecha": "2026-10-04",
+   "fuente": {
+    "slug": "sezzle",
+    "tipo": "greenhouse"
+   }
+  },
   "sidus": {
    "fecha": "2026-10-03",
    "fuente": null
@@ -474,6 +488,10 @@
   },
   "supervielle": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "syngenta": {
+   "fecha": "2026-10-04",
    "fuente": null
   },
   "techint": {
@@ -517,7 +535,7 @@
    "fuente": null
   },
   "visa": {
-   "fecha": "2026-09-27",
+   "fecha": "2026-10-04",
    "fuente": null
   },
   "volkswagen": {
@@ -550,7 +568,7 @@
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-03",
+ "ultima_corrida": "2026-10-04",
  "vistos": {
   "aleph": {},
   "amazon": {
@@ -558,6 +576,9 @@
    "10541373": "2026-09-28"
   },
   "bcg": {},
+  "boschgroup": {
+   "744000151686069": "2026-10-04"
+  },
   "brubank": {},
   "cocacola": {
    "/job/Argentina---Buenos-Aires/CPS-AR-Operador-de-Produccin-Interna_R-146217": "2026-09-29"
@@ -588,6 +609,15 @@
   },
   "sanofi": {},
   "servicenow": {},
+  "sezzle": {
+   "7977732003": "2026-10-04",
+   "7977739003": "2026-10-04",
+   "8004009003": "2026-10-04",
+   "8011711003": "2026-10-04",
+   "8012014003": "2026-10-04",
+   "8012016003": "2026-10-04",
+   "8012082003": "2026-10-04"
+  },
   "shell": {},
   "snowflake": {},
   "visa": {},
