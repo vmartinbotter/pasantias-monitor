@@ -16,6 +16,13 @@
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "agileengine": {
+   "fecha": "2026-10-05",
+   "fuente": {
+    "slug": "agileengine",
+    "tipo": "smartrecruiters"
+   }
+  },
   "aleph": {
    "fecha": "2026-09-26",
    "fuente": {
@@ -29,6 +36,14 @@
   },
   "auth0": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "aws": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "axoft": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "bago": {
@@ -85,6 +100,10 @@
     "tipo": "smartrecruiters"
    }
   },
+  "bostonconsultinggroup": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
   "bristolmyerssquibb": {
    "fecha": "2026-10-03",
    "fuente": null
@@ -96,8 +115,20 @@
     "tipo": "smartrecruiters"
    }
   },
+  "byma": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
   "capgemini": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "cargill": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "carrefour": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "casasco": {
@@ -167,8 +198,16 @@
     "tipo": "lever"
    }
   },
+  "domusglobal": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
   "eleaphoenix": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "elevo": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "elililly": {
@@ -202,6 +241,10 @@
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "flatironsoftware": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
   "ford": {
    "fecha": "2026-10-03",
    "fuente": null
@@ -214,20 +257,55 @@
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "ge": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
   "gehealthcare": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "gestamp": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "givaudan": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "globallogic": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "globant": {
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "gofundme": {
+   "fecha": "2026-10-05",
+   "fuente": {
+    "slug": "gofundme",
+    "tipo": "greenhouse"
+   }
+  },
   "google": {
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "griddynamicsinernational": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
   "gsk": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "hired": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "hirefeed": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "hsbc": {
@@ -240,6 +318,10 @@
   },
   "icbc": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "implementalsystems": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "infor": {
@@ -258,6 +340,10 @@
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "jbkargentina": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
   "johndeere": {
    "fecha": "2026-10-03",
    "fuente": null
@@ -266,12 +352,27 @@
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "jpmorgan": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "kavak": {
+   "fecha": "2026-10-05",
+   "fuente": {
+    "slug": "kavak",
+    "tipo": "lever"
+   }
+  },
   "kearney": {
    "fecha": "2026-10-03",
    "fuente": null
   },
   "kpmg": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "lasegundaseguros": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "loreal": {
@@ -288,6 +389,10 @@
   },
   "mckinsey": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "medife": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "mercadolibre": {
@@ -317,6 +422,10 @@
     "tipo": "lever"
    }
   },
+  "metlifeargentina": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
   "microsoft": {
    "fecha": "2026-10-04",
    "fuente": null
@@ -340,6 +449,10 @@
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "mrm": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
   "msd": {
    "fecha": "2026-10-03",
    "fuente": null
@@ -354,6 +467,10 @@
   },
   "nestle": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "newsan": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "nttdata": {
@@ -372,12 +489,24 @@
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "osde": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
   "pampaenergia": {
    "fecha": "2026-10-03",
    "fuente": null
   },
   "panamericanenergy": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "paradigma": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "payway": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "pedidosya": {
@@ -394,6 +523,10 @@
   },
   "pharmagenexus": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "pilkington": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "pomelo": {
@@ -414,6 +547,10 @@
   },
   "pwc": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "quikhirestaffing": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "raffo": {
@@ -438,6 +575,14 @@
   },
   "roemmers": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "salessystemsai": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "santacatalina": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "santander": {
@@ -474,6 +619,10 @@
     "tipo": "ashby"
    }
   },
+  "softtek": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
   "sonymusic": {
    "fecha": "2026-10-03",
    "fuente": null
@@ -482,12 +631,20 @@
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "sovos": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
   "stellantiis": {
    "fecha": "2026-10-03",
    "fuente": null
   },
   "supervielle": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "swissmedical": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "syngenta": {
@@ -534,12 +691,20 @@
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "universia": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
   "visa": {
    "fecha": "2026-10-04",
    "fuente": null
   },
   "volkswagen": {
    "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "widergy": {
+   "fecha": "2026-10-05",
    "fuente": null
   },
   "wienerlab": {
@@ -568,8 +733,9 @@
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-04",
+ "ultima_corrida": "2026-10-05",
  "vistos": {
+  "agileengine": {},
   "aleph": {},
   "amazon": {
    "10512594": "2026-09-26",
@@ -590,7 +756,9 @@
   "dlocal": {},
   "endava": {},
   "generalmotors": {},
+  "gofundme": {},
   "intel": {},
+  "kavak": {},
   "kimberlyclark": {
    "/job/Buenos-Aires-Argentina/Pasante-de-Recursos-Humanos_886105": "2026-10-03"
   },
