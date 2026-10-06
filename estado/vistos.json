@@ -8,6 +8,10 @@
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "accionait": {
+   "fecha": "2026-10-06",
+   "fuente": null
+  },
   "adblickagro": {
    "fecha": "2026-10-03",
    "fuente": null
@@ -729,11 +733,12 @@
   }
  },
  "fallas": {
+  "bcg": 1,
   "delltechnologies": 2,
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-05",
+ "ultima_corrida": "2026-10-06",
  "vistos": {
   "agileengine": {},
   "aleph": {},
