@@ -32,7 +32,7 @@ import yaml
 
 from concurrent.futures import ThreadPoolExecutor
 
-from fuentes_lib import ADAPTERS, NO_LOCATION, autodetectar, getonbrd, workday_detalle
+from fuentes_lib import ADAPTERS, NO_LOCATION, PORTALES, autodetectar, workday_detalle
 
 ROOT = Path(__file__).parent
 ESTADO = ROOT / "estado" / "vistos.json"
@@ -144,6 +144,7 @@ def notificar(titulo: str, cuerpo_html: str, cuerpo_txt: str):
     phone, apikey = os.environ.get("WHATSAPP_PHONE"), os.environ.get("WHATSAPP_APIKEY")
     if phone and apikey:
         # CallMeBot: servicio gratuito para mandarte WhatsApps a vos misma
+        # CallMeBot: servicio gratuito para mandarte WhatsApps a vos misma
         partes, actual = [], f"*{titulo}*\n"
         for linea in cuerpo_txt.splitlines():
             if len(actual) + len(linea) > 1500:
@@ -191,12 +192,12 @@ class Clasificador:
             return not (self.no_area and self.no_area.search(t))
         return False
 
-    def __call__(self, t, es_junior=False, area_ya_ok=False):
+    def __call__(self, t, es_junior=False, area_ya_ok=False, es_pasantia=False, texto_area=""):
         """es_junior: el portal ya dice que es junior (aunque el título no lo diga).
         area_ya_ok: el portal ya dice que es de un área tech (ej: categoría Programming)."""
         if self.excluir and self.excluir.search(t):
             return None
-        if self.pasantia.search(t):
+        if es_pasantia or self.pasantia.search(t):
             nivel = "pasantía"
         elif es_junior or (self.junior and self.junior.search(t)):
             nivel = "junior"
@@ -204,7 +205,7 @@ class Clasificador:
             return None
         if area_ya_ok:
             return None if (self.no_nunca and self.no_nunca.search(t)) else nivel
-        return nivel if self.area_ok(t) else None
+        return nivel if self.area_ok(f"{t} {texto_area}".strip()) else None
 
 
 # ------------------------------------------------------------------ Ubicación
@@ -347,33 +348,38 @@ def main():
                 print(f"    Sheet: {', '.join(x['range'] + '=' + repr(x['values'][0][0])[:40] for x in c)}")
             cambios += c
 
-    # ---- búsquedas abiertas (sin lista de empresas)
-    gob = (cfg.get("busquedas_abiertas") or {}).get("getonbrd") or {}
-    if gob.get("activo") and not args.empresa:
+    # ---- búsquedas abiertas (portales, sin lista de empresas)
+    for clave, conf in (cfg.get("busquedas_abiertas") or {}).items():
+        if not (conf and conf.get("activo")) or args.empresa or clave not in PORTALES:
+            continue
+        portal, buscar = PORTALES[clave]
+        fk = f"_{clave}"
         try:
-            jobs = getonbrd(gob)
-            fallas.pop("_getonbrd", None)
-            ya = vistos.setdefault("_getonbrd", {})
-            sen_jr = set(gob.get("seniority_junior", [1, 2]))
-            ok = []
-            for j in jobs:
-                if not (j.en_argentina or (j.fully_remote and gob.get("incluir_remoto"))):
-                    continue
-                j.nivel = clasificar(j.title, es_junior=j.seniority in sen_jr, area_ya_ok=True)
-                if j.nivel:
-                    ok.append(j)
-            frescos = [j for j in ok if j.id not in ya]
-            print(f"Get on Board: {len(jobs)} avisos tech, {len(ok)} para vos, {len(frescos)} nuevos")
-            for j in frescos:
-                print(f"    + [{j.nivel}] {j.company} — {j.title} [{j.location}]")
-                ya[j.id] = date.today().isoformat()
-                j.abierto = True
-                nuevos.append((j.company, j))
+            jobs = buscar(conf)
+            fallas.pop(fk, None)
         except Exception as e:  # noqa: BLE001
-            fallas["_getonbrd"] = fallas.get("_getonbrd", 0) + 1
-            print(f"[ERROR] Get on Board: {e}", file=sys.stderr)
-            if fallas["_getonbrd"] >= DIAS_FALLA_PARA_AVISAR:
-                errores.append(f"Get on Board ({fallas['_getonbrd']} corridas seguidas): {str(e)[:120]}")
+            fallas[fk] = fallas.get(fk, 0) + 1
+            print(f"[ERROR] {portal}: {e}", file=sys.stderr)
+            if fallas[fk] >= DIAS_FALLA_PARA_AVISAR:
+                errores.append(f"{portal} ({fallas[fk]} corridas seguidas): {str(e)[:120]}")
+            continue
+        ya = vistos.setdefault(fk, {})
+        ok = []
+        for j in jobs:
+            if not j.en_zona:
+                continue
+            j.nivel = clasificar(j.title, es_junior=j.pista_nivel == "junior",
+                                 es_pasantia=j.pista_nivel == "pasantía",
+                                 area_ya_ok=j.area_tech, texto_area=j.texto_area)
+            if j.nivel:
+                ok.append(j)
+        frescos = [j for j in ok if j.id not in ya]
+        print(f"{portal}: {len(jobs)} avisos, {len(ok)} para vos, {len(frescos)} nuevos")
+        for j in frescos:
+            print(f"    + [{j.nivel}] {j.company} — {j.title} [{j.location}]")
+            ya[j.id] = date.today().isoformat()
+            j.abierto, j.portal = True, portal
+            nuevos.append((j.company, j))
 
     if cambios and not args.dry_run:
         try:
@@ -385,11 +391,13 @@ def main():
     if nuevos or errores or detectadas:
         html_lines, txt_lines = [], []
         actual = None
-        grupos = (
+        grupos = [
             ("Pasantías", "🎓", lambda j: j.nivel == "pasantía" and not getattr(j, "abierto", False)),
             ("Puestos junior", "💼", lambda j: j.nivel == "junior" and not getattr(j, "abierto", False)),
-            ("Otras empresas · Get on Board", "🌐", lambda j: getattr(j, "abierto", False)),
-        )
+        ]
+        for portal, _ in PORTALES.values():
+            grupos.append((f"Otras empresas · {portal}", "🌐",
+                           lambda j, p=portal: getattr(j, "portal", None) == p))
         for etiqueta, emoji, cond in grupos:
             grupo = [(n, j) for n, j in nuevos if cond(j)]
             if etiqueta.startswith("Otras"):

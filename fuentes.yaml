@@ -25,7 +25,7 @@ filtros:
   # ---------- 2) ÁREA: tiene que ser de sistemas / tecnología / datos / ingeniería ----------
   # Palabras "fuertes": si el título tiene alguna, entra (salvo excluir_area_siempre)
   area_tecnica: >-
-    sistemas|software|developer|desarroll|programad|tecnolog|technology|\btech|
+    sistemas|software|developer|desarroll|programad|programming|programaci|tecnolog|technology|\btech|
     data|datos|analytics|anal[ií]tica|business intelligence|cloud|devops|
     testing|tester|automatiza|automation|ciber|cyber|seguridad inform|information security|
     infraestructura|infrastructure|redes|networking|soporte t[eé]cnico|it support|helpdesk|
@@ -48,14 +48,16 @@ filtros:
   # Se descartan SIEMPRE, aunque digan "IT" o "data" (ej: "IT Recruiter")
   excluir_area_siempre: >-
     recruit|reclut|talent acquisition|selecci[oó]n de personal|payroll|n[oó]mina|
-    legal|abogad|paralegal
+    legal|abogad|paralegal|data entry|data collection|carga de datos|transcri|annotat|anotaci|
+    voice actor|linguist|traduc|translat|video editor
 
   # Se descartan salvo que el título tenga una palabra "fuerte"
   # (ej: "Marketing Intern" no entra, "Marketing Data Analyst" sí)
   excluir_area: >-
     recursos humanos|rrhh|\bhr\b|human resources|people|compliance|
     marketing|comunicaci[oó]n|prensa|brand|marca|ventas|\bsales\b(?! engineer)|comercial|
-    contab|accounting|impuestos|\btax|tesorer[ií]a|treasury|auditor[ií]a|audit|finanzas|finance|
+    contab|accounting|impuestos|\btax|tesorer[ií]a|treasury|auditor[ií]a|audit|finanzas|finance|financial|
+    banking|investment|inversi[oó]n|trading|\bfund|
     compras|procurement|log[ií]stica|logistics|supply chain|almac[eé]n|warehouse|
     atenci[oó]n al cliente|customer service|call center|administrativ|recepci[oó]n|
     m[eé]dic|farmac[eé]utic|qu[ií]mic|chemistry|laboratorio|enfermer|nurse|
@@ -99,6 +101,18 @@ busquedas_abiertas:
     # true = también avisos 100% remotos de cualquier lugar ("fully remote" en Get on Board).
     # Los remotos que piden vivir en un país específico no entran.
     incluir_remoto: true
+
+  # Portales de trabajo remoto (todos los avisos son remotos; solo entran los que
+  # aceptan gente de Argentina, LATAM o de cualquier lugar)
+  jobicy:
+    activo: true
+    geos: [argentina, latam, anywhere]
+  himalayas:
+    activo: true
+    max_paginas: 5            # 20 avisos por página
+  remotive:
+    activo: true
+    categorias: [software-dev, data, devops, qa]   # máx. 4: Remotive limita las consultas diarias
 
 # ------------------------------------------------------------------------------
 # Fuentes por empresa. El nombre tiene que coincidir con la columna "Empresa"

@@ -311,3 +311,103 @@ def getonbrd(cfg):
             if page >= (d.get("meta") or {}).get("total_pages", 0):
                 break
     return out
+
+
+# ---------------------------------------------------------------- Portales remotos (búsqueda abierta)
+# Cada uno devuelve Jobs con atributos extra que usa monitor.py:
+#   company, en_zona (se puede trabajar desde Argentina), remoto, pista_nivel
+#   ("pasantía" / "junior" / None), area_tech (True si el portal ya dice que es tech),
+#   texto_area (texto extra para el filtro de área, ej. categorías)
+
+def _marcar(job, company, en_zona, remoto=True, pista_nivel=None, area_tech=False, texto_area=""):
+    job.company, job.en_zona, job.remoto = company or "?", en_zona, remoto
+    job.pista_nivel, job.area_tech, job.texto_area = pista_nivel, area_tech, texto_area
+    return job
+
+
+def getonbrd_abierta(cfg):
+    sen_jr = set(cfg.get("seniority_junior", [1, 2]))
+    out = []
+    for j in getonbrd(cfg):
+        en_zona = j.en_argentina or (j.fully_remote and cfg.get("incluir_remoto", True))
+        out.append(_marcar(j, j.company, en_zona, remoto=not j.en_argentina,
+                           pista_nivel="junior" if j.seniority in sen_jr else None, area_tech=True))
+    return out
+
+
+JOBICY_TECH = re.compile(r"software|data|devops|infrastructure|cyber|qa|testing|technical support|web|ui|ux", re.I)
+
+
+def jobicy(cfg):
+    """jobicy.com: remotos. Se consulta por zona (argentina, latam, anywhere)."""
+    out, seen = [], set()
+    for geo in cfg.get("geos", ["argentina", "latam", "anywhere"]):
+        d = _get("https://jobicy.com/api/v2/remote-jobs", params={"count": 200, "geo": geo}).json()
+        for x in d.get("jobs", []):
+            if x["id"] in seen:
+                continue
+            seen.add(x["id"])
+            inds = x.get("jobIndustry") or []
+            inds = inds if isinstance(inds, list) else [inds]
+            nivel = str(x.get("jobLevel") or "")
+            tipos = " ".join(x.get("jobType") or []) if isinstance(x.get("jobType"), list) else str(x.get("jobType") or "")
+            pista = ("pasantía" if re.search(r"intern", tipos + nivel, re.I)
+                     else "junior" if re.search(r"entry|junior", nivel, re.I) else None)
+            job = Job(str(x["id"]), x.get("jobTitle", ""), f"Remoto · {x.get('jobGeo', '')}", x.get("url", ""))
+            out.append(_marcar(job, x.get("companyName"), True, pista_nivel=pista,
+                               area_tech=any(JOBICY_TECH.search(i) for i in inds),
+                               texto_area=" ".join(inds)))
+    return out
+
+
+def himalayas(cfg):
+    """himalayas.app: remotos que aceptan gente de Argentina (o de cualquier lugar),
+    filtrados por nivel Entry-level y por tipo Intern."""
+    out, seen = [], set()
+    consultas = [{"seniority": "Entry-level"}, {"employment_type": "Intern"}]
+    for extra in consultas:
+        for page in range(1, cfg.get("max_paginas", 5) + 1):
+            d = _get("https://himalayas.app/jobs/api/search",
+                     params={"country": "AR", "sort": "recent", "page": page, **extra}).json()
+            items = d.get("jobs", [])
+            for x in items:
+                gid = x.get("guid") or x.get("applicationLink")
+                if not gid or gid in seen:
+                    continue
+                seen.add(gid)
+                restr = x.get("locationRestrictions") or []
+                sen = " ".join(x.get("seniority") or [])
+                pista = ("pasantía" if (x.get("employmentType") or "").lower() == "intern"
+                         else "junior" if "Entry" in sen else None)
+                loc = "Remoto · " + (", ".join(restr) if restr else "cualquier lugar")
+                job = Job(gid, x.get("title", ""), loc, x.get("applicationLink") or gid)
+                cats = " ".join(c.replace("-", " ") for c in x.get("categories") or [])
+                out.append(_marcar(job, x.get("companyName"), True, pista_nivel=pista, texto_area=cats))
+            if len(items) < 20:
+                break
+    return out
+
+
+REMOTIVE_ZONA = re.compile(r"worldwide|anywhere|latam|latin america|south america|americas|argentina", re.I)
+
+
+def remotive(cfg):
+    """remotive.com: remotos tech. Pide máximo ~4 consultas por día: no agregar más categorías."""
+    out = []
+    for cat in cfg.get("categorias", ["software-dev", "data", "devops", "qa"])[:4]:
+        d = _get("https://remotive.com/api/remote-jobs", params={"category": cat}).json()
+        for x in d.get("jobs", []):
+            zona = x.get("candidate_required_location") or ""
+            pista = "pasantía" if "intern" in (x.get("job_type") or "").lower() else None
+            job = Job(str(x["id"]), x.get("title", ""), f"Remoto · {zona or 'sin dato'}", x.get("url", ""))
+            out.append(_marcar(job, x.get("company_name"), bool(REMOTIVE_ZONA.search(zona)),
+                               pista_nivel=pista, area_tech=True))
+    return out
+
+
+PORTALES = {
+    "getonbrd": ("Get on Board", getonbrd_abierta),
+    "jobicy": ("Jobicy", jobicy),
+    "himalayas": ("Himalayas", himalayas),
+    "remotive": ("Remotive", remotive),
+}
