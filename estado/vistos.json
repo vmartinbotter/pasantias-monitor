@@ -1,30 +1,802 @@
 {
- "fallas": {
-  "delltechnologies": 1,
-  "mercadolibre": 1,
-  "microsoft": 1
- },
- "ultima_corrida": "2026-09-26",
- "vistos": {
-  "amazon": {
-   "10512594": "2026-09-26"
+ "auto_fuentes": {
+  "abbot": {
+   "fecha": "2026-10-03",
+   "fuente": null
   },
-  "cocacola": {},
+  "accenture": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "accionait": {
+   "fecha": "2026-10-06",
+   "fuente": null
+  },
+  "adblickagro": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "adidas": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "agileengine": {
+   "fecha": "2026-10-05",
+   "fuente": {
+    "slug": "agileengine",
+    "tipo": "smartrecruiters"
+   }
+  },
+  "aleph": {
+   "fecha": "2026-09-26",
+   "fuente": {
+    "slug": "aleph",
+    "tipo": "lever"
+   }
+  },
+  "arcor": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "auth0": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "aws": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "axoft": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "bago": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "bain": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "bancoitau": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "bancomacro": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "base22": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "baufest": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "bayer": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "bbva": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "bcg": {
+   "fecha": "2026-09-26",
+   "fuente": {
+    "slug": "bcg",
+    "tipo": "greenhouse"
+   }
+  },
+  "belatrix": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "bioprofarma": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "boschgroup": {
+   "fecha": "2026-10-04",
+   "fuente": {
+    "slug": "boschgroup",
+    "tipo": "smartrecruiters"
+   }
+  },
+  "bostonconsultinggroup": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "bristolmyerssquibb": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "brubank": {
+   "fecha": "2026-09-26",
+   "fuente": {
+    "slug": "brubank",
+    "tipo": "smartrecruiters"
+   }
+  },
+  "byma": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "capgemini": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "cargill": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "carrefour": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "casasco": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "cencosud": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "centralpuerto": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "cisco": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "craveri": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "danone": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "databricks": {
+   "fecha": "2026-09-26",
+   "fuente": {
+    "slug": "databricks",
+    "tipo": "greenhouse"
+   }
+  },
+  "delltechnologies": {
+   "fecha": "2026-10-04",
+   "fuente": null
+  },
+  "deloitte": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "despegar": {
+   "fecha": "2026-09-26",
+   "fuente": {
+    "slug": "despegar",
+    "tipo": "lever"
+   }
+  },
+  "didi": {
+   "fecha": "2026-09-26",
+   "fuente": {
+    "slug": "didi",
+    "tipo": "greenhouse"
+   }
+  },
+  "disney": {
+   "fecha": "2026-09-26",
+   "fuente": {
+    "slug": "disney",
+    "tipo": "greenhouse"
+   }
+  },
+  "dlocal": {
+   "fecha": "2026-09-26",
+   "fuente": {
+    "slug": "dlocal",
+    "tipo": "lever"
+   }
+  },
+  "domusglobal": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "eleaphoenix": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "elevo": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "elililly": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "emergeinteractive": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "encora": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "endava": {
+   "fecha": "2026-09-26",
+   "fuente": {
+    "slug": "endava",
+    "tipo": "smartrecruiters"
+   }
+  },
+  "epamsystems": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "epicor": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "etermax": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "flatironsoftware": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "ford": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "gador": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "galicia": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "ge": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "gehealthcare": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "gestamp": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "givaudan": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "globallogic": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "globant": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "gofundme": {
+   "fecha": "2026-10-05",
+   "fuente": {
+    "slug": "gofundme",
+    "tipo": "greenhouse"
+   }
+  },
+  "google": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "greencode": {
+   "fecha": "2026-10-09",
+   "fuente": null
+  },
+  "griddynamicsinernational": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "gsk": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "hired": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "hirefeed": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "hsbc": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "ibm": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "icbc": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "implementalsystems": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "infor": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "ivaxargentina": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "ivaxdiagnostics": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "iveco": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "jbkargentina": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "johndeere": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "johnsonjohnson": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "jpmorgan": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "kavak": {
+   "fecha": "2026-10-05",
+   "fuente": {
+    "slug": "kavak",
+    "tipo": "lever"
+   }
+  },
+  "kearney": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "kpmg": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "lasegundaseguros": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "loreal": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "makingsense": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "managementsolutions": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "mckinsey": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "medife": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "mercadolibre": {
+   "fecha": "2026-10-04",
+   "fuente": null
+  },
+  "mercadopago": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "mercedesbenz": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "mercklifescience": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "meta": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "metlife": {
+   "fecha": "2026-09-26",
+   "fuente": {
+    "slug": "metlife",
+    "tipo": "lever"
+   }
+  },
+  "metlifeargentina": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "microsoft": {
+   "fecha": "2026-10-04",
+   "fuente": null
+  },
+  "molinos": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "mongodb": {
+   "fecha": "2026-09-26",
+   "fuente": {
+    "slug": "mongodb",
+    "tipo": "greenhouse"
+   }
+  },
+  "moni": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "montpellier": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "mrm": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "msd": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "n5": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "naranjax": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "nestle": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "newsan": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "nttdata": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "okamstudio": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "oneflow": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "opella": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "osde": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "pampaenergia": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "panamericanenergy": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "paradigma": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "payway": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "pedidosya": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "pepsico": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "pg": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "pharmagenexus": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "pilkington": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "pomelo": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "practia": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "price": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "puma": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "pwc": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "quikhirestaffing": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "raffo": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "renault": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "revdev": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "ripio": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "roche": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "roemmers": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "salessystemsai": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "santacatalina": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "santander": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "sap": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "scania": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "sezzle": {
+   "fecha": "2026-10-04",
+   "fuente": {
+    "slug": "sezzle",
+    "tipo": "greenhouse"
+   }
+  },
+  "sidus": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "sirius": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "snowflake": {
+   "fecha": "2026-09-26",
+   "fuente": {
+    "slug": "snowflake",
+    "tipo": "ashby"
+   }
+  },
+  "softtek": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "sonymusic": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "southworks": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "sovos": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "stellantiis": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "supervielle": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "swissmedical": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "syngenta": {
+   "fecha": "2026-10-04",
+   "fuente": null
+  },
+  "techint": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "tecpetrol": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "telecom": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "teradata": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "teva": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "thermofisherscientific": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "totvs": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "toyota": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "uala": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "unilever": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "universia": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "visa": {
+   "fecha": "2026-10-04",
+   "fuente": null
+  },
+  "volkswagen": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "widergy": {
+   "fecha": "2026-10-05",
+   "fuente": null
+  },
+  "wienerlab": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "wolox": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "ypf": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "zapo": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  },
+  "zs": {
+   "fecha": "2026-10-03",
+   "fuente": null
+  }
+ },
+ "fallas": {
+  "bcg": 4,
+  "delltechnologies": 2,
+  "mercadolibre": 2,
+  "microsoft": 2
+ },
+ "ultima_corrida": "2026-10-09",
+ "vistos": {
+  "agileengine": {},
+  "aleph": {},
+  "amazon": {
+   "10512594": "2026-09-26",
+   "10541373": "2026-09-28"
+  },
+  "bcg": {},
+  "boschgroup": {
+   "744000151686069": "2026-10-04"
+  },
+  "brubank": {},
+  "cocacola": {
+   "/job/Argentina---Buenos-Aires/CPS-AR-Operador-de-Produccin-Interna_R-146217": "2026-09-29"
+  },
+  "databricks": {},
+  "despegar": {},
+  "didi": {},
+  "disney": {},
+  "dlocal": {},
+  "endava": {},
   "generalmotors": {},
+  "gofundme": {},
   "intel": {},
-  "kimberlyclark": {},
+  "kavak": {},
+  "kimberlyclark": {
+   "/job/Buenos-Aires-Argentina/Pasante-de-Recursos-Humanos_886105": "2026-10-03"
+  },
   "mastercard": {},
+  "metlife": {},
   "mondelez": {},
+  "mongodb": {},
   "nike": {},
   "novartis": {},
   "nvidia": {},
   "oracle": {},
   "paypal": {},
   "pfizer": {},
-  "salesforce": {},
+  "salesforce": {
+   "/job/Argentina---Buenos-Aires/LATAM-Internship-Program---Sales-Strategy-Intern--Argentina-_JR362431-1": "2026-10-02"
+  },
   "sanofi": {},
   "servicenow": {},
+  "sezzle": {
+   "7977732003": "2026-10-04",
+   "7977739003": "2026-10-04",
+   "8004009003": "2026-10-04",
+   "8011711003": "2026-10-04",
+   "8012014003": "2026-10-04",
+   "8012016003": "2026-10-04",
+   "8012082003": "2026-10-04"
+  },
   "shell": {},
+  "snowflake": {},
   "visa": {},
   "vmware": {},
   "warnerbros": {},
