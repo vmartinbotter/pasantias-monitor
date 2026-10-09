@@ -8,16 +8,59 @@ actualizar_sheet: true
 
 filtros:
   # Lo que se le pide al buscador de cada sitio (Workday, SmartRecruiters, etc.)
-  palabras_busqueda: [intern, pasante, pasantía, trainee]
+  palabras_busqueda: [intern, pasante, pasantía, trainee, junior, "entry level", graduate]
 
-  # El TÍTULO del aviso tiene que matchear esto (regex, sin distinguir mayúsculas)
-  incluir: >-
-    intern|pasant|trainee|becari|estudiante|student|joven(es)? profesional|
+  # ---------- 1) NIVEL: el título tiene que ser de pasantía O de junior ----------
+  pasantia: >-
+    intern|pasant|trainee|becari|estudiante|student|j[oó]ven(es)? profesional|
     early career|graduate program|programa de graduados|\bPPS\b|pr[aá]ctica profesional|
     summer analyst|aprendiz
+  junior: >-
+    junior|\bjr\b|entry[- ]level|graduate|new grad|reci[eé]n recibid|sin experiencia|
+    early talent|analista (de )?trainee
 
-  # ...y NO matchear esto
-  excluir: \b(senior|sr\.?|lead|manager|director|head of|principal)\b
+  # ...y NO puede ser senior
+  excluir: \b(senior|sr|semi ?senior|ssr|lead|manager|director|head of|principal|staff|gerente|jefe|l[ií]der)\b
+
+  # ---------- 2) ÁREA: tiene que ser de sistemas / tecnología / datos / ingeniería ----------
+  # Palabras "fuertes": si el título tiene alguna, entra (salvo excluir_area_siempre)
+  area_tecnica: >-
+    sistemas|software|developer|desarroll|programad|tecnolog|technology|\btech|
+    data|datos|analytics|anal[ií]tica|business intelligence|cloud|devops|
+    testing|tester|automatiza|automation|ciber|cyber|seguridad inform|information security|
+    infraestructura|infrastructure|redes|networking|soporte t[eé]cnico|it support|helpdesk|
+    frontend|front-end|backend|back-end|full ?stack|machine learning|inteligencia artificial|
+    data science|ciencia de datos|comput|inform[aá]tic|telecom|pre-?sales|preventa|
+    python|java|\.net|mobile|\brpa\b|consultor[ií]a funcional|functional consult|
+    business analyst|analista funcional|functional analyst|analista de negocio|
+    salesforce|\bsap\b|\berp\b|\bcrm\b
+  # Siglas que tienen que estar en MAYÚSCULAS (para no confundir "it" con IT)
+  area_tecnica_siglas: \b(IT|TI|BI|AI|IA|ML|QA|SRE|SAP|ERP|CRM|UX|API|IoT|IOT)\b
+
+  # Palabras "débiles": entran solo si el título NO es de un área de excluir_area
+  # (ej: "Engineering Intern" entra, "Marketing Innovation Intern" no)
+  area_tecnica_debil: >-
+    engineer|ingenier|technical|t[eé]cnic|digital|innovation|innovaci[oó]n|
+    web|aplicaciones|applications|platform|plataforma|product owner|producto|product|
+    scrum|agile|arquitect|architect|ux|ui designer|security|seguridad|network|procesos|process|
+    consult|consultor|anal[iy]st|analista
+
+  # Se descartan SIEMPRE, aunque digan "IT" o "data" (ej: "IT Recruiter")
+  excluir_area_siempre: >-
+    recruit|reclut|talent acquisition|selecci[oó]n de personal|payroll|n[oó]mina|
+    legal|abogad|paralegal
+
+  # Se descartan salvo que el título tenga una palabra "fuerte"
+  # (ej: "Marketing Intern" no entra, "Marketing Data Analyst" sí)
+  excluir_area: >-
+    recursos humanos|rrhh|\bhr\b|human resources|people|compliance|
+    marketing|comunicaci[oó]n|prensa|brand|marca|ventas|\bsales\b(?! engineer)|comercial|
+    contab|accounting|impuestos|\btax|tesorer[ií]a|treasury|auditor[ií]a|audit|finanzas|finance|
+    compras|procurement|log[ií]stica|logistics|supply chain|almac[eé]n|warehouse|
+    atenci[oó]n al cliente|customer service|call center|administrativ|recepci[oó]n|
+    m[eé]dic|farmac[eé]utic|qu[ií]mic|chemistry|laboratorio|enfermer|nurse|
+    in-store|\bstore\b|tienda|vendedor|cajer|mantenimiento|maintenance|mec[aá]nic|
+    hse|seguridad e higiene|safety|calidad de producto|planta|plant
 
   # Si el aviso trae ubicación, tiene que matchear esto.
   # Solo Buenos Aires (CABA + GBA). También acepta avisos que dicen solo "Argentina"
@@ -55,7 +98,7 @@ empresas:
   Workday:           {tipo: workday, url: "https://workday.wd5.myworkdayjobs.com/Workday"}
   NVIDIA:            {tipo: workday, url: "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite"}
   Intel:             {tipo: workday, url: "https://intel.wd1.myworkdayjobs.com/External"}
-  #Dell Technologies: {tipo: workday, url: "https://dell.wd1.myworkdayjobs.com/External"}
+#  Dell Technologies: {tipo: workday, url: "https://dell.wd1.myworkdayjobs.com/External"}
   Mastercard:        {tipo: workday, url: "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers"}
   Paypal:            {tipo: workday, url: "https://paypal.wd1.myworkdayjobs.com/jobs"}
   Pfizer:            {tipo: workday, url: "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers"}
@@ -70,13 +113,13 @@ empresas:
   VMware:            {tipo: workday, url: "https://broadcom.wd1.myworkdayjobs.com/External_Career"}  # hoy es Broadcom
 
   # --- SmartRecruiters ---
-  #Visa:              {tipo: smartrecruiters, slug: Visa}
+#  Visa:              {tipo: smartrecruiters, slug: Visa}
   ServiceNow:        {tipo: smartrecruiters, slug: ServiceNow}
 
   # --- Otros sistemas ---
   Amazon:            {tipo: amazon, location: Argentina}
-  #Microsoft:         {tipo: eightfold, host: apply.careers.microsoft.com, domain: microsoft.com, location: Argentina}
-  #Mercado Libre:     {tipo: eightfold, host: mercadolibre.eightfold.ai, domain: mercadolibre.com, location: Argentina}
+#  Microsoft:         {tipo: eightfold, host: apply.careers.microsoft.com, domain: microsoft.com, location: Argentina}
+#  Mercado Libre:     {tipo: eightfold, host: mercadolibre.eightfold.ai, domain: mercadolibre.com, location: Argentina}
   # Mercado Pago publica en el mismo portal que Mercado Libre, así que no lo duplico
   Oracle:            {tipo: oracle_hcm, host: eeho.fa.us2.oraclecloud.com, site: CX_45001}
 

@@ -166,6 +166,43 @@ def notificar(titulo: str, cuerpo_html: str, cuerpo_txt: str):
         print(f"\n=== {titulo} ===\n{cuerpo_txt}")
 
 
+# ------------------------------------------------------------------ Nivel y área
+class Clasificador:
+    """Devuelve "pasantía", "junior" o None según el título del aviso."""
+
+    def __init__(self, f, rx):
+        self.pasantia = rx(f.get("pasantia") or f["incluir"])  # "incluir" = config vieja
+        self.junior = rx(f["junior"]) if f.get("junior") else None
+        self.excluir = rx(f["excluir"]) if f.get("excluir") else None
+        self.fuerte = rx(f["area_tecnica"]) if f.get("area_tecnica") else None
+        self.siglas = re.compile(f["area_tecnica_siglas"]) if f.get("area_tecnica_siglas") else None
+        self.debil = rx(f["area_tecnica_debil"]) if f.get("area_tecnica_debil") else None
+        self.no_nunca = rx(f["excluir_area_siempre"]) if f.get("excluir_area_siempre") else None
+        self.no_area = rx(f["excluir_area"]) if f.get("excluir_area") else None
+
+    def area_ok(self, t):
+        if self.fuerte is None:  # sin filtro de área configurado
+            return True
+        if self.no_nunca and self.no_nunca.search(t):
+            return False
+        if self.fuerte.search(t) or (self.siglas and self.siglas.search(t)):
+            return True
+        if self.debil and self.debil.search(t):
+            return not (self.no_area and self.no_area.search(t))
+        return False
+
+    def __call__(self, t):
+        if self.excluir and self.excluir.search(t):
+            return None
+        if self.pasantia.search(t):
+            nivel = "pasantía"
+        elif self.junior and self.junior.search(t):
+            nivel = "junior"
+        else:
+            return None
+        return nivel if self.area_ok(t) else None
+
+
 # ------------------------------------------------------------------ Ubicación
 MULTI = re.compile(r"^\d+\s|multiple|varias|several", re.I)
 
@@ -205,8 +242,7 @@ def main():
     cfg = yaml.safe_load((ROOT / "fuentes.yaml").read_text(encoding="utf-8"))
     filtros = cfg["filtros"]
     rx = lambda t: re.compile(re.sub(r"\s*\|\s*", "|", t.strip()), re.I)  # noqa: E731
-    inc = rx(filtros["incluir"])
-    exc = rx(filtros["excluir"]) if filtros.get("excluir") else None
+    clasificar = Clasificador(filtros, rx)
     loc_re = rx(filtros["ubicacion"])
     keywords = filtros["palabras_busqueda"]
     fuentes = {norm(k): (k, v) for k, v in (cfg.get("empresas") or {}).items() if v}
@@ -259,7 +295,8 @@ def main():
             for s in srcs:
                 jobs = ADAPTERS[s["tipo"]](s, keywords)
                 for j in jobs:
-                    if not inc.search(j.title) or (exc and exc.search(j.title)):
+                    j.nivel = clasificar(j.title)
+                    if not j.nivel:
                         continue
                     if not ubicacion_ok(s, j, loc_re):
                         descartados.append(f"{j.title} [{j.location or 'sin ubicación'}]")
@@ -281,15 +318,16 @@ def main():
 
         ya = vistos.setdefault(key, {})
         frescos = [j for j in encontrados if j.id not in ya]
-        print(f"{nombre}: {len(encontrados)} pasantías en BA, {len(frescos)} nuevas, "
+        print(f"{nombre}: {len(encontrados)} en BA, {len(frescos)} nuevas, "
               f"{len(descartados)} descartadas por ubicación")
         for j in frescos:
-            print(f"    + {j.title} [{j.location}]")
+            print(f"    + [{j.nivel}] {j.title} [{j.location}]")
         for j in frescos:
             ya[j.id] = date.today().isoformat()
             nuevos.append((nombre, j))
         if ws and fila_nro and cfg.get("actualizar_sheet"):
-            c = cambios_sheet(col, fila_nro, fila, encontrados)
+            # El Sheet es de pasantías: solo lo marcan las pasantías, no los puestos junior
+            c = cambios_sheet(col, fila_nro, fila, [j for j in encontrados if j.nivel == "pasantía"])
             if c:
                 print(f"    Sheet: {', '.join(x['range'] + '=' + repr(x['values'][0][0])[:40] for x in c)}")
             cambios += c
@@ -304,14 +342,21 @@ def main():
     if nuevos or errores or detectadas:
         html_lines, txt_lines = [], []
         actual = None
-        for nombre, j in nuevos:
-            if nombre != actual:
-                html_lines.append(f"\n🏢 <b>{escape(nombre)}</b>")
-                txt_lines.append(f"\n{nombre}")
-                actual = nombre
-            loc = f" — {escape(j.location)}" if j.location else ""
-            html_lines.append(f'• <a href="{escape(j.url)}">{escape(j.title)}</a>{loc}')
-            txt_lines.append(f"  - {j.title}{' — ' + j.location if j.location else ''}\n    {j.url}")
+        for etiqueta, emoji, nivel in (("Pasantías", "🎓", "pasantía"), ("Puestos junior", "💼", "junior")):
+            grupo = [(n, j) for n, j in nuevos if j.nivel == nivel]
+            if not grupo:
+                continue
+            html_lines.append(f"\n{emoji} <b><u>{etiqueta} ({len(grupo)})</u></b>")
+            txt_lines.append(f"\n===== {etiqueta.upper()} ({len(grupo)}) =====")
+            actual = None
+            for nombre, j in grupo:
+                if nombre != actual:
+                    html_lines.append(f"\n🏢 <b>{escape(nombre)}</b>")
+                    txt_lines.append(f"\n{nombre}")
+                    actual = nombre
+                loc = f" — {escape(j.location)}" if j.location else ""
+                html_lines.append(f'• <a href="{escape(j.url)}">{escape(j.title)}</a>{loc}')
+                txt_lines.append(f"  - {j.title}{' — ' + j.location if j.location else ''}\n    {j.url}")
         if detectadas:
             html_lines.append("\n🔎 <b>Empresas nuevas que ahora monitoreo</b> (revisá que sea la empresa correcta):")
             html_lines += [f"• {escape(d)}" for d in detectadas]
@@ -322,7 +367,10 @@ def main():
             html_lines += [f"• {escape(e)}" for e in errores]
             txt_lines.append("\nFuentes que vienen fallando:")
             txt_lines += [f"  - {e}" for e in errores]
-        titulo = (f"🎓 {len(nuevos)} pasantía(s) nueva(s) en Buenos Aires" if nuevos
+        n_p = sum(j.nivel == "pasantía" for _, j in nuevos)
+        n_j = len(nuevos) - n_p
+        partes = ([f"{n_p} pasantía(s)"] if n_p else []) + ([f"{n_j} junior"] if n_j else [])
+        titulo = (f"🎓 {' + '.join(partes)} nuevas en Buenos Aires" if nuevos
                   else "Monitor de pasantías: novedades")
         if args.dry_run:
             print(f"\n[dry-run] {titulo}\n" + "\n".join(txt_lines))
