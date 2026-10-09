@@ -17,10 +17,10 @@ filtros:
     summer analyst|aprendiz
   junior: >-
     junior|\bjr\b|entry[- ]level|graduate|new grad|reci[eé]n recibid|sin experiencia|
-    early talent|analista (de )?trainee
+    early talent|analista (de )?trainee|associate product manager|\bAPM\b
 
   # ...y NO puede ser senior
-  excluir: \b(senior|sr|semi ?senior|ssr|lead|manager|director|head of|principal|staff|gerente|jefe|l[ií]der)\b
+  excluir: \b(senior|sr|semi ?senior|ssr|lead|(?<!product )(?<!project )manager|director|head of|principal|staff|gerente|jefe|l[ií]der)\b
 
   # ---------- 2) ÁREA: tiene que ser de sistemas / tecnología / datos / ingeniería ----------
   # Palabras "fuertes": si el título tiene alguna, entra (salvo excluir_area_siempre)
@@ -33,9 +33,10 @@ filtros:
     data science|ciencia de datos|comput|inform[aá]tic|telecom|pre-?sales|preventa|
     python|java|\.net|mobile|\brpa\b|consultor[ií]a funcional|functional consult|
     business analyst|analista funcional|functional analyst|analista de negocio|
+    an[aá]lisis funcional|functional analysis|analista de sistemas|systems analyst|product developer|
     salesforce|\bsap\b|\berp\b|\bcrm\b
   # Siglas que tienen que estar en MAYÚSCULAS (para no confundir "it" con IT)
-  area_tecnica_siglas: \b(IT|TI|BI|AI|IA|ML|QA|SRE|SAP|ERP|CRM|UX|API|IoT|IOT)\b
+  area_tecnica_siglas: \b(IT|TI|BI|AI|IA|ML|QA|SRE|SAP|ERP|CRM|UX|API|IoT|IOT|APM|PMO)\b
 
   # Palabras "débiles": entran solo si el título NO es de un área de excluir_area
   # (ej: "Engineering Intern" entra, "Marketing Innovation Intern" no)
@@ -43,7 +44,8 @@ filtros:
     engineer|ingenier|technical|t[eé]cnic|digital|innovation|innovaci[oó]n|
     web|aplicaciones|applications|platform|plataforma|product owner|producto|product|
     scrum|agile|arquitect|architect|ux|ui designer|security|seguridad|network|procesos|process|
-    consult|consultor|anal[iy]st|analista
+    consult|consultor|anal[iy]st|analista|implementaci[oó]n|implementation|
+    requirements|requerimientos|project|proyecto|\bpmo\b|solutions|soluciones
 
   # Se descartan SIEMPRE, aunque digan "IT" o "data" (ej: "IT Recruiter")
   excluir_area_siempre: >-
