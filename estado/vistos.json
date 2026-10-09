@@ -296,6 +296,10 @@
    "fecha": "2026-10-03",
    "fuente": null
   },
+  "greencode": {
+   "fecha": "2026-10-09",
+   "fuente": null
+  },
   "griddynamicsinernational": {
    "fecha": "2026-10-05",
    "fuente": null
@@ -733,12 +737,12 @@
   }
  },
  "fallas": {
-  "bcg": 3,
+  "bcg": 4,
   "delltechnologies": 2,
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-08",
+ "ultima_corrida": "2026-10-09",
  "vistos": {
   "agileengine": {},
   "aleph": {},
