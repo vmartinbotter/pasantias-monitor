@@ -191,7 +191,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--empresa", help="probar solo esta empresa")
+    ap.add_argument("--probar-aviso", action="store_true", help="manda un mensaje de prueba y sale")
     args = ap.parse_args()
+
+    if args.probar_aviso:
+        print("Secrets presentes:", {k: bool(os.environ.get(k)) for k in (
+            "SMTP_USER", "SMTP_PASS", "WHATSAPP_PHONE", "WHATSAPP_APIKEY",
+            "TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID")})
+        notificar("🧪 Prueba del monitor de pasantías", "Si ves esto, el canal funciona ✅",
+                  "Si ves esto, el canal funciona.")
+        return
 
     cfg = yaml.safe_load((ROOT / "fuentes.yaml").read_text(encoding="utf-8"))
     filtros = cfg["filtros"]
@@ -232,9 +241,11 @@ def main():
                 auto[k] = {"fuente": src, "fecha": hoy.isoformat()}
                 if src:
                     detectadas.append(f"{nombre}: {src['tipo']} / {src['slug']}")
+    auto_keys = set()
     for k, a in auto.items():
         if a.get("fuente") and k not in fuentes:
             fuentes[k] = (k, a["fuente"])
+            auto_keys.add(k)
 
     nuevos, sin_fuente, errores, cambios = [], [], [], []
     for key, (nombre, fila_nro, fila) in sorted(empresas.items()):
@@ -258,6 +269,12 @@ def main():
         except Exception as e:  # noqa: BLE001
             fallas[key] = fallas.get(key, 0) + 1
             print(f"[ERROR] {nombre}: {e}", file=sys.stderr)
+            if key in auto_keys and ("404" in str(e) or fallas[key] >= DIAS_FALLA_PARA_AVISAR):
+                # Fuente autodetectada que dejó de existir: la olvido y la vuelvo a buscar en una semana
+                auto[key] = {"fuente": None, "fecha": hoy.isoformat()}
+                fallas.pop(key, None)
+                print(f"    {nombre}: la fuente autodetectada ya no existe, la descarto")
+                continue
             if fallas[key] >= DIAS_FALLA_PARA_AVISAR:
                 errores.append(f"{nombre} ({fallas[key]} corridas seguidas): {str(e)[:120]}")
             continue
