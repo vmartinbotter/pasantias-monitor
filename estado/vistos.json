@@ -734,6 +734,7 @@
   }
  },
  "fallas": {
+  "_getonbrd": 1,
   "delltechnologies": 2,
   "mercadolibre": 2,
   "microsoft": 2
@@ -749,6 +750,62 @@
    "sre-devops-engineer-junior-bc-tecnologia-remote": "2026-10-09",
    "wordpress-content-publishing-specialist-junior-front-end-d-josh-brown-consulting-remote": "2026-10-09"
   },
+  "_himalayas": {
+   "https://himalayas.app/companies/alu/jobs/wcn-alu-curriculum-development-intern": "2026-10-09",
+   "https://himalayas.app/companies/archwell-health/jobs/it-analyst-network-engineer-jr-network-engineer": "2026-10-09",
+   "https://himalayas.app/companies/cloudcops/jobs/junior-devops-cloud-engineer": "2026-10-09",
+   "https://himalayas.app/companies/coconut/jobs/ghl-marketing-specialist-job-code-1785194674180": "2026-10-09",
+   "https://himalayas.app/companies/flowmingo/jobs/growth-product-intern-fresher": "2026-10-09",
+   "https://himalayas.app/companies/flowmingo/jobs/product-intern-fresher": "2026-10-09",
+   "https://himalayas.app/companies/flowmingo/jobs/qa-qc-intern": "2026-10-09",
+   "https://himalayas.app/companies/gitlab-com/jobs/backend-frontend-and-fullstack-engineering-expression-of-interest-form": "2026-10-09",
+   "https://himalayas.app/companies/gitlab-com/jobs/customer-success-expression-of-interest-form": "2026-10-09",
+   "https://himalayas.app/companies/gitlab-com/jobs/product-design-expression-of-interest-form": "2026-10-09",
+   "https://himalayas.app/companies/gitlab-com/jobs/security-engineer-expression-of-interest-form": "2026-10-09",
+   "https://himalayas.app/companies/gitlab-com/jobs/technical-writer-expression-of-interest-form": "2026-10-09",
+   "https://himalayas.app/companies/gitlab-com/jobs/ux-researcher-expression-of-interest-form": "2026-10-09",
+   "https://himalayas.app/companies/google-fiber/jobs/future-opportunities-with-engineering-technology": "2026-10-09",
+   "https://himalayas.app/companies/gsa-capital/jobs/digital-competition-spark-2026": "2026-10-09",
+   "https://himalayas.app/companies/guidepoint-security-llc/jobs/gpsu-military-commercial-fellowship": "2026-10-09",
+   "https://himalayas.app/companies/gwen/jobs/ux-design-intern": "2026-10-09",
+   "https://himalayas.app/companies/hire-hangar/jobs/msp-technical-support-specialist": "2026-10-09",
+   "https://himalayas.app/companies/identifeye-health/jobs/join-our-talent-community": "2026-10-09",
+   "https://himalayas.app/companies/kodland/jobs/latam-web-design": "2026-10-09",
+   "https://himalayas.app/companies/newsbreak/jobs/business-development-strategy-intern-mba-nearby-ai": "2026-10-09",
+   "https://himalayas.app/companies/nexoratalent/jobs/remote-customer-support-specialist-2931373364": "2026-10-09",
+   "https://himalayas.app/companies/nightowl-consulting/jobs/autocad-drafter-jr-estimator": "2026-10-09",
+   "https://himalayas.app/companies/nightowl-consulting/jobs/junior-mortgage-processor": "2026-10-09",
+   "https://himalayas.app/companies/prologa/jobs/bewerberpool": "2026-10-09",
+   "https://himalayas.app/companies/qwp-gmbh/jobs/werkstudent-ai-agents-social-growth-m-w-d": "2026-10-09",
+   "https://himalayas.app/companies/ritual-net/jobs/research-intern-1464631102": "2026-10-09",
+   "https://himalayas.app/companies/ritual-net/jobs/software-engineer-intern-9031169445": "2026-10-09",
+   "https://himalayas.app/companies/sarvify/jobs/intern-html-css-js-python": "2026-10-09",
+   "https://himalayas.app/companies/sarvify/jobs/intern-mern-stack": "2026-10-09",
+   "https://himalayas.app/companies/sezzle/jobs/chargeback-operations-intern-9169446729": "2026-10-09",
+   "https://himalayas.app/companies/sezzle/jobs/fraud-disputes-intern-898116112": "2026-10-09",
+   "https://himalayas.app/companies/sezzle/jobs/marketing-growth-analytics-operations-intern": "2026-10-09",
+   "https://himalayas.app/companies/sezzle/jobs/marketing-growth-communications-intern": "2026-10-09",
+   "https://himalayas.app/companies/sezzle/jobs/risk-disputes-intern-1401106808": "2026-10-09",
+   "https://himalayas.app/companies/syneos-health-india-private-limited/jobs/reg-submssion-coordinator-veeva-rim-msprojects": "2026-10-09",
+   "https://himalayas.app/companies/talent-journey/jobs/junior-backend-developer-future-position": "2026-10-09",
+   "https://himalayas.app/companies/talent-journey/jobs/junior-frontend-developer-future-position": "2026-10-09",
+   "https://himalayas.app/companies/tether-operations-limited/jobs/research-engineer-intern-video-multimodal-llm": "2026-10-09",
+   "https://himalayas.app/companies/trueml/jobs/jr-devops-engineer": "2026-10-09",
+   "https://himalayas.app/companies/urban-systems/jobs/open-application-for-students": "2026-10-09",
+   "https://himalayas.app/companies/vantum/jobs/qa-tester": "2026-10-09",
+   "https://himalayas.app/companies/vapaus/jobs/general-application": "2026-10-09",
+   "https://himalayas.app/companies/welocalize/jobs/ads-quality-rater-spanish-argentina": "2026-10-09",
+   "https://himalayas.app/companies/work-better-now/jobs/business-development-representative": "2026-10-09",
+   "https://himalayas.app/companies/work-better-now/jobs/estimator-assistant": "2026-10-09",
+   "https://himalayas.app/companies/xperteez-technology/jobs/google-classroom-specialist-remote-contract": "2026-10-09",
+   "https://himalayas.app/companies/xperteez-technology/jobs/humanities-evaluation-specialist-remote-contract": "2026-10-09",
+   "https://himalayas.app/companies/xperteez-technology/jobs/stripe-specialist-remote-contract": "2026-10-09",
+   "https://himalayas.app/companies/zigchain/jobs/work-with-us": "2026-10-09"
+  },
+  "_jobicy": {
+   "152452": "2026-10-09"
+  },
+  "_remotive": {},
   "agileengine": {},
   "aleph": {
    "48cd3a55-7a1f-4d45-a580-374857db5d47": "2026-10-09"
@@ -778,7 +835,9 @@
   "kimberlyclark": {
    "/job/Buenos-Aires-Argentina/Pasante-de-Recursos-Humanos_886105": "2026-10-03"
   },
-  "mastercard": {},
+  "mastercard": {
+   "/job/Buenos-Aires-Argentina/Junior-Technical-Project-Manager_R-292530": "2026-10-09"
+  },
   "metlife": {},
   "mondelez": {},
   "mongodb": {},
