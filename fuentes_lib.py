@@ -273,3 +273,41 @@ def autodetectar(nombre: str):
             if n > n_mejor:
                 mejor, n_mejor = src, n
     return mejor
+
+
+# ---------------------------------------------------------------- Get on Board (búsqueda abierta)
+GETONBRD_SENIORITY = {1: "sin experiencia", 2: "junior", 3: "semi senior", 4: "senior", 5: "expert"}
+GETONBRD_MODALIDAD = {"fully_remote": "remoto", "remote_local": "remoto", "temporarily_remote": "remoto",
+                      "hybrid": "híbrido", "no_remote": "presencial"}
+
+
+def getonbrd(cfg):
+    """Trae los avisos de las categorías tech de Get on Board. No necesita lista de empresas.
+    Devuelve Jobs con atributos extra: company, seniority (1-5), remoto (bool)."""
+    out, seen = [], set()
+    for cat in cfg.get("categorias", []):
+        for page in range(1, cfg.get("max_paginas", 5) + 1):
+            d = _get(f"https://www.getonbrd.com/api/v0/categories/{cat}/jobs",
+                     params={"per_page": 100, "page": page, "expand": '["company"]'}).json()
+            for item in d.get("data", []):
+                if item["id"] in seen:
+                    continue
+                seen.add(item["id"])
+                a = item.get("attributes", {})
+                countries = a.get("countries") or []
+                modalidad = GETONBRD_MODALIDAD.get(a.get("remote_modality"), "")
+                paises = ", ".join(c for c in countries if c != "Remote")
+                loc = (f"{paises} ({modalidad})" if modalidad else paises) if paises else "100% remoto"
+                comp = ((a.get("company") or {}).get("data") or {})
+                job = Job(item["id"], a.get("title", ""), loc,
+                          (item.get("links") or {}).get("public_url", ""))
+                job.company = (comp.get("attributes") or {}).get("name") or comp.get("id", "?")
+                job.seniority = ((a.get("seniority") or {}).get("data") or {}).get("id")
+                job.en_argentina = "Argentina" in countries
+                job.fully_remote = a.get("remote_modality") == "fully_remote"
+                job.remoto = job.fully_remote
+                job.categoria = a.get("category_name", "")
+                out.append(job)
+            if page >= (d.get("meta") or {}).get("total_pages", 0):
+                break
+    return out

@@ -32,7 +32,7 @@ import yaml
 
 from concurrent.futures import ThreadPoolExecutor
 
-from fuentes_lib import ADAPTERS, NO_LOCATION, autodetectar, workday_detalle
+from fuentes_lib import ADAPTERS, NO_LOCATION, autodetectar, getonbrd, workday_detalle
 
 ROOT = Path(__file__).parent
 ESTADO = ROOT / "estado" / "vistos.json"
@@ -191,15 +191,19 @@ class Clasificador:
             return not (self.no_area and self.no_area.search(t))
         return False
 
-    def __call__(self, t):
+    def __call__(self, t, es_junior=False, area_ya_ok=False):
+        """es_junior: el portal ya dice que es junior (aunque el título no lo diga).
+        area_ya_ok: el portal ya dice que es de un área tech (ej: categoría Programming)."""
         if self.excluir and self.excluir.search(t):
             return None
         if self.pasantia.search(t):
             nivel = "pasantía"
-        elif self.junior and self.junior.search(t):
+        elif es_junior or (self.junior and self.junior.search(t)):
             nivel = "junior"
         else:
             return None
+        if area_ya_ok:
+            return None if (self.no_nunca and self.no_nunca.search(t)) else nivel
         return nivel if self.area_ok(t) else None
 
 
@@ -207,8 +211,10 @@ class Clasificador:
 MULTI = re.compile(r"^\d+\s|multiple|varias|several", re.I)
 
 
-def ubicacion_ok(src, job, loc_re) -> bool:
-    """Estricto: si no se puede saber dónde es, se descarta."""
+def ubicacion_ok(src, job, loc_re, remoto_re=None) -> bool:
+    """Estricto: si no se puede saber dónde es, se descarta.
+    Entra si es en Buenos Aires, o si es 100% remoto global / LATAM (marca job.remoto)."""
+    job.remoto = False
     if src["tipo"] in NO_LOCATION or src.get("sin_filtro_ubicacion"):
         return True
     loc = (job.location or "").strip()
@@ -220,7 +226,15 @@ def ubicacion_ok(src, job, loc_re) -> bool:
             except Exception as e:  # noqa: BLE001
                 print(f"    [warn] no pude ver ubicaciones de {job.title}: {e}", file=sys.stderr)
         job.location = loc
-    return bool(loc) and bool(loc_re.search(loc))
+    if not loc:
+        return False
+    if loc_re.search(loc):
+        return True
+    # Workday junta varias ubicaciones con " | ": alcanza con que una sea remota global
+    if remoto_re and any(remoto_re.search(x.strip()) for x in re.split(r"\s*[|;/]\s*", loc) + [loc]):
+        job.remoto = True
+        return True
+    return False
 
 
 # ------------------------------------------------------------------ Main
@@ -244,6 +258,7 @@ def main():
     rx = lambda t: re.compile(re.sub(r"\s*\|\s*", "|", t.strip()), re.I)  # noqa: E731
     clasificar = Clasificador(filtros, rx)
     loc_re = rx(filtros["ubicacion"])
+    remoto_re = rx(filtros["ubicacion_remota"]) if filtros.get("ubicacion_remota") else None
     keywords = filtros["palabras_busqueda"]
     fuentes = {norm(k): (k, v) for k, v in (cfg.get("empresas") or {}).items() if v}
 
@@ -298,7 +313,7 @@ def main():
                     j.nivel = clasificar(j.title)
                     if not j.nivel:
                         continue
-                    if not ubicacion_ok(s, j, loc_re):
+                    if not ubicacion_ok(s, j, loc_re, remoto_re):
                         descartados.append(f"{j.title} [{j.location or 'sin ubicación'}]")
                         continue
                     encontrados.append(j)
@@ -318,10 +333,10 @@ def main():
 
         ya = vistos.setdefault(key, {})
         frescos = [j for j in encontrados if j.id not in ya]
-        print(f"{nombre}: {len(encontrados)} en BA, {len(frescos)} nuevas, "
+        print(f"{nombre}: {len(encontrados)} en BA/remoto, {len(frescos)} nuevas, "
               f"{len(descartados)} descartadas por ubicación")
         for j in frescos:
-            print(f"    + [{j.nivel}] {j.title} [{j.location}]")
+            print(f"    + [{j.nivel}{' · remoto' if j.remoto else ''}] {j.title} [{j.location}]")
         for j in frescos:
             ya[j.id] = date.today().isoformat()
             nuevos.append((nombre, j))
@@ -331,6 +346,34 @@ def main():
             if c:
                 print(f"    Sheet: {', '.join(x['range'] + '=' + repr(x['values'][0][0])[:40] for x in c)}")
             cambios += c
+
+    # ---- búsquedas abiertas (sin lista de empresas)
+    gob = (cfg.get("busquedas_abiertas") or {}).get("getonbrd") or {}
+    if gob.get("activo") and not args.empresa:
+        try:
+            jobs = getonbrd(gob)
+            fallas.pop("_getonbrd", None)
+            ya = vistos.setdefault("_getonbrd", {})
+            sen_jr = set(gob.get("seniority_junior", [1, 2]))
+            ok = []
+            for j in jobs:
+                if not (j.en_argentina or (j.fully_remote and gob.get("incluir_remoto"))):
+                    continue
+                j.nivel = clasificar(j.title, es_junior=j.seniority in sen_jr, area_ya_ok=True)
+                if j.nivel:
+                    ok.append(j)
+            frescos = [j for j in ok if j.id not in ya]
+            print(f"Get on Board: {len(jobs)} avisos tech, {len(ok)} para vos, {len(frescos)} nuevos")
+            for j in frescos:
+                print(f"    + [{j.nivel}] {j.company} — {j.title} [{j.location}]")
+                ya[j.id] = date.today().isoformat()
+                j.abierto = True
+                nuevos.append((j.company, j))
+        except Exception as e:  # noqa: BLE001
+            fallas["_getonbrd"] = fallas.get("_getonbrd", 0) + 1
+            print(f"[ERROR] Get on Board: {e}", file=sys.stderr)
+            if fallas["_getonbrd"] >= DIAS_FALLA_PARA_AVISAR:
+                errores.append(f"Get on Board ({fallas['_getonbrd']} corridas seguidas): {str(e)[:120]}")
 
     if cambios and not args.dry_run:
         try:
@@ -342,8 +385,15 @@ def main():
     if nuevos or errores or detectadas:
         html_lines, txt_lines = [], []
         actual = None
-        for etiqueta, emoji, nivel in (("Pasantías", "🎓", "pasantía"), ("Puestos junior", "💼", "junior")):
-            grupo = [(n, j) for n, j in nuevos if j.nivel == nivel]
+        grupos = (
+            ("Pasantías", "🎓", lambda j: j.nivel == "pasantía" and not getattr(j, "abierto", False)),
+            ("Puestos junior", "💼", lambda j: j.nivel == "junior" and not getattr(j, "abierto", False)),
+            ("Otras empresas · Get on Board", "🌐", lambda j: getattr(j, "abierto", False)),
+        )
+        for etiqueta, emoji, cond in grupos:
+            grupo = [(n, j) for n, j in nuevos if cond(j)]
+            if etiqueta.startswith("Otras"):
+                grupo.sort(key=lambda x: x[0].lower())
             if not grupo:
                 continue
             html_lines.append(f"\n{emoji} <b><u>{etiqueta} ({len(grupo)})</u></b>")
@@ -355,8 +405,11 @@ def main():
                     txt_lines.append(f"\n{nombre}")
                     actual = nombre
                 loc = f" — {escape(j.location)}" if j.location else ""
-                html_lines.append(f'• <a href="{escape(j.url)}">{escape(j.title)}</a>{loc}')
-                txt_lines.append(f"  - {j.title}{' — ' + j.location if j.location else ''}\n    {j.url}")
+                tag = f"[{j.nivel.capitalize()}] " if getattr(j, "abierto", False) else ""
+                if getattr(j, "remoto", False):
+                    tag = "🌍 " + tag
+                html_lines.append(f'• {escape(tag)}<a href="{escape(j.url)}">{escape(j.title)}</a>{loc}')
+                txt_lines.append(f"  - {tag}{j.title}{' — ' + j.location if j.location else ''}\n    {j.url}")
         if detectadas:
             html_lines.append("\n🔎 <b>Empresas nuevas que ahora monitoreo</b> (revisá que sea la empresa correcta):")
             html_lines += [f"• {escape(d)}" for d in detectadas]
@@ -370,7 +423,7 @@ def main():
         n_p = sum(j.nivel == "pasantía" for _, j in nuevos)
         n_j = len(nuevos) - n_p
         partes = ([f"{n_p} pasantía(s)"] if n_p else []) + ([f"{n_j} junior"] if n_j else [])
-        titulo = (f"🎓 {' + '.join(partes)} nuevas en Buenos Aires" if nuevos
+        titulo = (f"🎓 {' + '.join(partes)} nuevas para vos" if nuevos
                   else "Monitor de pasantías: novedades")
         if args.dry_run:
             print(f"\n[dry-run] {titulo}\n" + "\n".join(txt_lines))

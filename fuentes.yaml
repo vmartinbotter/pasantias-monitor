@@ -71,8 +71,34 @@ filtros:
     san fernando|nordelta|la plata|
     ^\W*(remote|remoto|hybrid|h[ií]brido)?\W*argentina\W*(remote|remoto|hybrid|h[ií]brido)?\W*$
 
+  # Remotos "de donde sea": si el aviso es 100% remoto global o para LATAM, también entra
+  # (ej: "Remote", "Remote - Worldwide", "Anywhere", "Remote LATAM").
+  # "Remote - USA" o "Remote, Brazil" NO entran, porque piden vivir en ese país.
+  # Para desactivarlo, borrá estas líneas.
+  ubicacion_remota: >-
+    ^\W*(100%\s*)?(remote|remoto|anywhere|worldwide|global|home ?office|work from home|wfh)\W*$|
+    (remote|remoto|teletrabajo).{0,25}(worldwide|anywhere|global|latam|latin america|south america|am[eé]rica latina|americas|international)|
+    (worldwide|anywhere|global|latam|latin america|south america|am[eé]rica latina|americas).{0,25}(remote|remoto)
+
   # Empresas del Sheet con estos estados no se monitorean
   excluir_estados: ["Descartada por mí"]
+
+# ------------------------------------------------------------------------------
+# Búsquedas abiertas: portales donde se busca SIN lista de empresas.
+# Llegan en el mail en un bloque aparte "🌐 Otras empresas".
+# ------------------------------------------------------------------------------
+busquedas_abiertas:
+  getonbrd:
+    activo: true
+    # Categorías de getonbrd.com que se revisan (todas tech)
+    categorias: [programming, data-science-analytics, sysadmin-devops-qa, mobile-developer,
+                 machine-learning-ai, cybersecurity, technical-support, innovation-agile]
+    max_paginas: 5            # 100 avisos por página, de los más nuevos a los más viejos
+    # Seniority de Get on Board que cuentan como "junior": 1 = sin experiencia, 2 = junior
+    seniority_junior: [1, 2]
+    # true = también avisos 100% remotos de cualquier lugar ("fully remote" en Get on Board).
+    # Los remotos que piden vivir en un país específico no entran.
+    incluir_remoto: true
 
 # ------------------------------------------------------------------------------
 # Fuentes por empresa. El nombre tiene que coincidir con la columna "Empresa"
