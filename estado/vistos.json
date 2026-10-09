@@ -83,11 +83,8 @@
    "fuente": null
   },
   "bcg": {
-   "fecha": "2026-09-26",
-   "fuente": {
-    "slug": "bcg",
-    "tipo": "greenhouse"
-   }
+   "fecha": "2026-10-09",
+   "fuente": null
   },
   "belatrix": {
    "fecha": "2026-10-03",
@@ -737,7 +734,6 @@
   }
  },
  "fallas": {
-  "bcg": 4,
   "delltechnologies": 2,
   "mercadolibre": 2,
   "microsoft": 2
@@ -745,7 +741,9 @@
  "ultima_corrida": "2026-10-09",
  "vistos": {
   "agileengine": {},
-  "aleph": {},
+  "aleph": {
+   "48cd3a55-7a1f-4d45-a580-374857db5d47": "2026-10-09"
+  },
   "amazon": {
    "10512594": "2026-09-26",
    "10541373": "2026-09-28"
@@ -787,6 +785,7 @@
   "sanofi": {},
   "servicenow": {},
   "sezzle": {
+   "6668066003": "2026-10-09",
    "7977732003": "2026-10-04",
    "7977739003": "2026-10-04",
    "8004009003": "2026-10-04",
