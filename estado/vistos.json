@@ -164,7 +164,7 @@
    }
   },
   "delltechnologies": {
-   "fecha": "2026-10-04",
+   "fecha": "2026-10-11",
    "fuente": null
   },
   "deloitte": {
@@ -401,7 +401,7 @@
    "fuente": null
   },
   "mercadolibre": {
-   "fecha": "2026-10-04",
+   "fecha": "2026-10-11",
    "fuente": null
   },
   "mercadopago": {
@@ -432,7 +432,7 @@
    "fuente": null
   },
   "microsoft": {
-   "fecha": "2026-10-04",
+   "fecha": "2026-10-11",
    "fuente": null
   },
   "molinos": {
@@ -653,7 +653,7 @@
    "fuente": null
   },
   "syngenta": {
-   "fecha": "2026-10-04",
+   "fecha": "2026-10-11",
    "fuente": null
   },
   "techint": {
@@ -701,7 +701,7 @@
    "fuente": null
   },
   "visa": {
-   "fecha": "2026-10-04",
+   "fecha": "2026-10-11",
    "fuente": null
   },
   "volkswagen": {
@@ -738,7 +738,7 @@
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-10",
+ "ultima_corrida": "2026-10-11",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
@@ -806,6 +806,7 @@
    "https://himalayas.app/companies/zinier/jobs/software-development-engineer-customer-experience-l1": "2026-10-10"
   },
   "_jobicy": {
+   "150369": "2026-10-11",
    "152452": "2026-10-09"
   },
   "_remotive": {},
