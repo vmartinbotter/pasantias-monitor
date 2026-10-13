@@ -9,7 +9,7 @@
    "fuente": null
   },
   "accionait": {
-   "fecha": "2026-10-06",
+   "fecha": "2026-10-13",
    "fuente": null
   },
   "adblickagro": {
@@ -738,7 +738,7 @@
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-12",
+ "ultima_corrida": "2026-10-13",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
@@ -750,8 +750,11 @@
    "wordpress-content-publishing-specialist-junior-front-end-d-josh-brown-consulting-remote": "2026-10-09"
   },
   "_himalayas": {
+   "https://himalayas.app/companies/altus-digital/jobs/salesforce-marketing-cloud-sfmc-developer": "2026-10-13",
+   "https://himalayas.app/companies/altus-digital/jobs/salesforce-marketing-cloud-sfmc-email-specialist": "2026-10-13",
    "https://himalayas.app/companies/alu/jobs/wcn-alu-curriculum-development-intern": "2026-10-09",
    "https://himalayas.app/companies/archwell-health/jobs/it-analyst-network-engineer-jr-network-engineer": "2026-10-09",
+   "https://himalayas.app/companies/avary-ai/jobs/data-scientist-intern": "2026-10-13",
    "https://himalayas.app/companies/cloudcops/jobs/junior-devops-cloud-engineer": "2026-10-09",
    "https://himalayas.app/companies/coconut/jobs/ghl-marketing-specialist-job-code-1785194674180": "2026-10-09",
    "https://himalayas.app/companies/ctl-information-technology/jobs/analista-de-ciberseguridad-jr": "2026-10-10",
@@ -774,6 +777,7 @@
    "https://himalayas.app/companies/hire-hangar/jobs/msp-technical-support-specialist": "2026-10-09",
    "https://himalayas.app/companies/identifeye-health/jobs/join-our-talent-community": "2026-10-09",
    "https://himalayas.app/companies/kodland/jobs/latam-web-design": "2026-10-09",
+   "https://himalayas.app/companies/micro1/jobs/consumer-reviewer": "2026-10-13",
    "https://himalayas.app/companies/moneygram/jobs/implementation-coordinator": "2026-10-10",
    "https://himalayas.app/companies/newsbreak/jobs/business-development-strategy-intern-mba-nearby-ai": "2026-10-09",
    "https://himalayas.app/companies/nexoratalent/jobs/remote-customer-support-specialist-2931373364": "2026-10-09",
@@ -810,6 +814,7 @@
    "https://himalayas.app/companies/xperteez-technology/jobs/google-classroom-specialist-remote-contract": "2026-10-09",
    "https://himalayas.app/companies/xperteez-technology/jobs/humanities-evaluation-specialist-remote-contract": "2026-10-09",
    "https://himalayas.app/companies/xperteez-technology/jobs/stripe-specialist-remote-contract": "2026-10-09",
+   "https://himalayas.app/companies/zerobroker/jobs/carrier-sales-rep": "2026-10-13",
    "https://himalayas.app/companies/zigchain/jobs/work-with-us": "2026-10-09",
    "https://himalayas.app/companies/zinier/jobs/software-development-engineer-customer-experience-l1": "2026-10-10"
   },
