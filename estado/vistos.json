@@ -734,11 +734,12 @@
   }
  },
  "fallas": {
+  "_himalayas": 1,
   "delltechnologies": 2,
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-14",
+ "ultima_corrida": "2026-10-15",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
@@ -822,6 +823,7 @@
    "https://himalayas.app/companies/zinier/jobs/software-development-engineer-customer-experience-l1": "2026-10-10"
   },
   "_jobicy": {
+   "149160": "2026-10-15",
    "150369": "2026-10-11",
    "152452": "2026-10-09"
   },
