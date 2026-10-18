@@ -164,7 +164,7 @@
    }
   },
   "delltechnologies": {
-   "fecha": "2026-10-11",
+   "fecha": "2026-10-18",
    "fuente": null
   },
   "deloitte": {
@@ -401,7 +401,7 @@
    "fuente": null
   },
   "mercadolibre": {
-   "fecha": "2026-10-11",
+   "fecha": "2026-10-18",
    "fuente": null
   },
   "mercadopago": {
@@ -432,7 +432,7 @@
    "fuente": null
   },
   "microsoft": {
-   "fecha": "2026-10-11",
+   "fecha": "2026-10-18",
    "fuente": null
   },
   "molinos": {
@@ -653,7 +653,7 @@
    "fuente": null
   },
   "syngenta": {
-   "fecha": "2026-10-11",
+   "fecha": "2026-10-18",
    "fuente": null
   },
   "techint": {
@@ -701,7 +701,7 @@
    "fuente": null
   },
   "visa": {
-   "fecha": "2026-10-11",
+   "fecha": "2026-10-18",
    "fuente": null
   },
   "volkswagen": {
@@ -738,7 +738,7 @@
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-17",
+ "ultima_corrida": "2026-10-18",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
@@ -750,6 +750,8 @@
    "wordpress-content-publishing-specialist-junior-front-end-d-josh-brown-consulting-remote": "2026-10-09"
   },
   "_himalayas": {
+   "https://himalayas.app/companies/affidea-bv/jobs/junior-devops-engineer": "2026-10-18",
+   "https://himalayas.app/companies/affidea-bv/jobs/junior-digital-innovation-engineer": "2026-10-18",
    "https://himalayas.app/companies/affidea-bv/jobs/qa-and-uat-tester": "2026-10-16",
    "https://himalayas.app/companies/altus-digital/jobs/salesforce-marketing-cloud-sfmc-developer": "2026-10-13",
    "https://himalayas.app/companies/altus-digital/jobs/salesforce-marketing-cloud-sfmc-email-specialist": "2026-10-13",
@@ -765,6 +767,7 @@
    "https://himalayas.app/companies/ctl-information-technology/jobs/analista-de-ciberseguridad-jr": "2026-10-10",
    "https://himalayas.app/companies/ctl-information-technology/jobs/sysadmin-jr-monitoring": "2026-10-10",
    "https://himalayas.app/companies/emetlab/jobs/junior-software-engineer": "2026-10-12",
+   "https://himalayas.app/companies/ewor-gmbh/jobs/ai-research-lab-co-founder-cmo-100-remote-m-f-d-5545667816": "2026-10-18",
    "https://himalayas.app/companies/flowmingo/jobs/growth-product-intern-fresher": "2026-10-09",
    "https://himalayas.app/companies/flowmingo/jobs/product-intern-fresher": "2026-10-09",
    "https://himalayas.app/companies/flowmingo/jobs/qa-qc-intern": "2026-10-09",
@@ -775,15 +778,18 @@
    "https://himalayas.app/companies/gitlab-com/jobs/technical-writer-expression-of-interest-form": "2026-10-09",
    "https://himalayas.app/companies/gitlab-com/jobs/ux-researcher-expression-of-interest-form": "2026-10-09",
    "https://himalayas.app/companies/google-fiber/jobs/future-opportunities-with-engineering-technology": "2026-10-09",
+   "https://himalayas.app/companies/groove-global-llc/jobs/business-development-representative": "2026-10-18",
    "https://himalayas.app/companies/gsa-capital/jobs/digital-competition-spark-2026": "2026-10-09",
    "https://himalayas.app/companies/guidepoint-security-llc/jobs/gpsu-military-commercial-fellowship": "2026-10-09",
    "https://himalayas.app/companies/gwen/jobs/ux-design-intern": "2026-10-09",
    "https://himalayas.app/companies/hadley-designs/jobs/illustration-assistant": "2026-10-12",
    "https://himalayas.app/companies/headspin/jobs/junior-support-engineer": "2026-10-16",
+   "https://himalayas.app/companies/hire-hangar/jobs/customer-support-specialist-ai-assisted": "2026-10-18",
    "https://himalayas.app/companies/hire-hangar/jobs/msp-technical-support-specialist": "2026-10-09",
    "https://himalayas.app/companies/holiday-world/jobs/software-engineer-internship-unpaid": "2026-10-16",
    "https://himalayas.app/companies/identifeye-health/jobs/join-our-talent-community": "2026-10-09",
    "https://himalayas.app/companies/interlaced/jobs/it-support-technician-i-buenos-aires": "2026-10-17",
+   "https://himalayas.app/companies/jobsity/jobs/sales-development-representative-sdr-technology-business-unit": "2026-10-18",
    "https://himalayas.app/companies/kodland/jobs/latam-web-design": "2026-10-09",
    "https://himalayas.app/companies/major-league-hacking/jobs/technical-content-streamer": "2026-10-16",
    "https://himalayas.app/companies/makerble/jobs/automated-tester": "2026-10-17",
@@ -795,8 +801,10 @@
    "https://himalayas.app/companies/newsbreak/jobs/business-development-strategy-intern-mba-nearby-ai": "2026-10-09",
    "https://himalayas.app/companies/nexoratalent/jobs/remote-customer-support-specialist-2931373364": "2026-10-09",
    "https://himalayas.app/companies/nightowl-consulting/jobs/autocad-drafter-jr-estimator": "2026-10-09",
+   "https://himalayas.app/companies/nightowl-consulting/jobs/jr-loan-coordinator-7538276244": "2026-10-18",
    "https://himalayas.app/companies/nightowl-consulting/jobs/junior-mortgage-processor": "2026-10-09",
    "https://himalayas.app/companies/partyhat/jobs/animator": "2026-10-16",
+   "https://himalayas.app/companies/pratham-international/jobs/general-application": "2026-10-18",
    "https://himalayas.app/companies/prologa/jobs/bewerberpool": "2026-10-09",
    "https://himalayas.app/companies/qwp-gmbh/jobs/werkstudent-ai-agents-social-growth-m-w-d": "2026-10-09",
    "https://himalayas.app/companies/ritual-net/jobs/research-intern-1464631102": "2026-10-09",
@@ -813,6 +821,7 @@
    "https://himalayas.app/companies/syneos-health-india-private-limited/jobs/reg-submssion-coordinator-veeva-rim-msprojects": "2026-10-09",
    "https://himalayas.app/companies/talent-journey/jobs/junior-backend-developer-future-position": "2026-10-09",
    "https://himalayas.app/companies/talent-journey/jobs/junior-frontend-developer-future-position": "2026-10-09",
+   "https://himalayas.app/companies/teamcubation/jobs/ai-mentor-junior-724052218": "2026-10-18",
    "https://himalayas.app/companies/terac/jobs/strategic-projects-associate-1068719544": "2026-10-16",
    "https://himalayas.app/companies/tether-operations-limited/jobs/junior-project-manager-keet-p2p-100-remote": "2026-10-12",
    "https://himalayas.app/companies/tether-operations-limited/jobs/junior-project-manager-keet-p2p-100-remote-2515616695": "2026-10-16",
