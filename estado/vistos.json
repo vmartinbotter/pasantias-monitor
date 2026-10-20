@@ -9,7 +9,7 @@
    "fuente": null
   },
   "accionait": {
-   "fecha": "2026-10-13",
+   "fecha": "2026-10-20",
    "fuente": null
   },
   "adblickagro": {
@@ -736,10 +736,9 @@
  "fallas": {
   "delltechnologies": 2,
   "mercadolibre": 2,
-  "microsoft": 2,
-  "salesforce": 1
+  "microsoft": 2
  },
- "ultima_corrida": "2026-10-19",
+ "ultima_corrida": "2026-10-20",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
@@ -797,6 +796,7 @@
    "https://himalayas.app/companies/makerble/jobs/automated-tester": "2026-10-17",
    "https://himalayas.app/companies/makerble/jobs/devops-volunteer": "2026-10-17",
    "https://himalayas.app/companies/micro1/jobs/consumer-reviewer": "2026-10-13",
+   "https://himalayas.app/companies/micro1/jobs/photographer-4022720764": "2026-10-20",
    "https://himalayas.app/companies/micro1/jobs/usability-tester": "2026-10-14",
    "https://himalayas.app/companies/mimidentalclinic/jobs/junior-software-engineer": "2026-10-17",
    "https://himalayas.app/companies/moneygram/jobs/implementation-coordinator": "2026-10-10",
