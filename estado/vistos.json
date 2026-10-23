@@ -83,7 +83,7 @@
    "fuente": null
   },
   "bcg": {
-   "fecha": "2026-10-16",
+   "fecha": "2026-10-23",
    "fuente": null
   },
   "belatrix": {
@@ -294,7 +294,7 @@
    "fuente": null
   },
   "greencode": {
-   "fecha": "2026-10-16",
+   "fecha": "2026-10-23",
    "fuente": null
   },
   "griddynamicsinernational": {
@@ -738,7 +738,7 @@
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-22",
+ "ultima_corrida": "2026-10-23",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
@@ -770,6 +770,7 @@
    "https://himalayas.app/companies/ctl-information-technology/jobs/sysadmin-jr-monitoring": "2026-10-10",
    "https://himalayas.app/companies/emetlab/jobs/junior-software-engineer": "2026-10-12",
    "https://himalayas.app/companies/ewor-gmbh/jobs/ai-research-lab-co-founder-cmo-100-remote-m-f-d-5545667816": "2026-10-18",
+   "https://himalayas.app/companies/five-and-fly/jobs/analytics-engineering-intern": "2026-10-23",
    "https://himalayas.app/companies/flowmingo/jobs/growth-product-intern-fresher": "2026-10-09",
    "https://himalayas.app/companies/flowmingo/jobs/product-intern-fresher": "2026-10-09",
    "https://himalayas.app/companies/flowmingo/jobs/qa-qc-intern": "2026-10-09",
@@ -789,6 +790,7 @@
    "https://himalayas.app/companies/hire-hangar/jobs/customer-support-specialist-ai-assisted": "2026-10-18",
    "https://himalayas.app/companies/hire-hangar/jobs/msp-technical-support-specialist": "2026-10-09",
    "https://himalayas.app/companies/holiday-world/jobs/software-engineer-internship-unpaid": "2026-10-16",
+   "https://himalayas.app/companies/hostaway/jobs/customer-onboarding-specialist-100-remote-latam": "2026-10-23",
    "https://himalayas.app/companies/identifeye-health/jobs/join-our-talent-community": "2026-10-09",
    "https://himalayas.app/companies/interlaced/jobs/it-support-technician-i-buenos-aires": "2026-10-17",
    "https://himalayas.app/companies/jobsity/jobs/sales-development-representative-sdr-technology-business-unit": "2026-10-18",
@@ -796,6 +798,16 @@
    "https://himalayas.app/companies/major-league-hacking/jobs/technical-content-streamer": "2026-10-16",
    "https://himalayas.app/companies/makerble/jobs/automated-tester": "2026-10-17",
    "https://himalayas.app/companies/makerble/jobs/devops-volunteer": "2026-10-17",
+   "https://himalayas.app/companies/metasys/jobs/automation-qa-engineer-internship": "2026-10-23",
+   "https://himalayas.app/companies/metasys/jobs/data-architect-internship": "2026-10-23",
+   "https://himalayas.app/companies/metasys/jobs/data-scientist-internship": "2026-10-23",
+   "https://himalayas.app/companies/metasys/jobs/devops-engineer-internship": "2026-10-23",
+   "https://himalayas.app/companies/metasys/jobs/devsecops-engineer-internship": "2026-10-23",
+   "https://himalayas.app/companies/metasys/jobs/frontend-engineer-internship": "2026-10-23",
+   "https://himalayas.app/companies/metasys/jobs/mlops-engineer-internship": "2026-10-23",
+   "https://himalayas.app/companies/metasys/jobs/performance-tester-internship": "2026-10-23",
+   "https://himalayas.app/companies/metasys/jobs/product-manager-internship": "2026-10-23",
+   "https://himalayas.app/companies/metasys/jobs/technical-architect-frontend-backend-internship": "2026-10-23",
    "https://himalayas.app/companies/micro1/jobs/consumer-reviewer": "2026-10-13",
    "https://himalayas.app/companies/micro1/jobs/evaluation-specialist-recent-grad-6119027108": "2026-10-21",
    "https://himalayas.app/companies/micro1/jobs/photographer-4022720764": "2026-10-20",
@@ -844,6 +856,7 @@
    "https://himalayas.app/companies/welocalize/jobs/ads-quality-rater-spanish-argentina": "2026-10-09",
    "https://himalayas.app/companies/work-better-now/jobs/business-development-representative": "2026-10-09",
    "https://himalayas.app/companies/work-better-now/jobs/estimator-assistant": "2026-10-09",
+   "https://himalayas.app/companies/worldwide-clinical-trials/jobs/clinical-trials-associate-argentina-mexico-brazil": "2026-10-23",
    "https://himalayas.app/companies/xperteez-technology/jobs/cbrn-specialist": "2026-10-12",
    "https://himalayas.app/companies/xperteez-technology/jobs/data-analyst-remote-contact": "2026-10-12",
    "https://himalayas.app/companies/xperteez-technology/jobs/google-classroom-specialist-remote-contract": "2026-10-09",
