@@ -1,11 +1,11 @@
 {
  "auto_fuentes": {
   "abbot": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "accenture": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "accionait": {
@@ -13,11 +13,11 @@
    "fuente": null
   },
   "adblickagro": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "adidas": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "agileengine": {
@@ -35,11 +35,11 @@
    }
   },
   "arcor": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "auth0": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "aws": {
@@ -51,35 +51,35 @@
    "fuente": null
   },
   "bago": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "bain": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "bancoitau": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "bancomacro": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "base22": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "baufest": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "bayer": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "bbva": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "bcg": {
@@ -87,11 +87,11 @@
    "fuente": null
   },
   "belatrix": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "bioprofarma": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "boschgroup": {
@@ -106,7 +106,7 @@
    "fuente": null
   },
   "bristolmyerssquibb": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "brubank": {
@@ -121,7 +121,7 @@
    "fuente": null
   },
   "capgemini": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "cargill": {
@@ -133,27 +133,27 @@
    "fuente": null
   },
   "casasco": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "cencosud": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "centralpuerto": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "cisco": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "craveri": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "danone": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "databricks": {
@@ -168,7 +168,7 @@
    "fuente": null
   },
   "deloitte": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "despegar": {
@@ -204,7 +204,7 @@
    "fuente": null
   },
   "eleaphoenix": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "elevo": {
@@ -212,15 +212,15 @@
    "fuente": null
   },
   "elililly": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "emergeinteractive": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "encora": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "endava": {
@@ -231,15 +231,15 @@
    }
   },
   "epamsystems": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "epicor": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "etermax": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "flatironsoftware": {
@@ -247,15 +247,15 @@
    "fuente": null
   },
   "ford": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "gador": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "galicia": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "ge": {
@@ -263,7 +263,7 @@
    "fuente": null
   },
   "gehealthcare": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "gestamp": {
@@ -279,7 +279,7 @@
    "fuente": null
   },
   "globant": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "gofundme": {
@@ -290,7 +290,7 @@
    }
   },
   "google": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "greencode": {
@@ -302,7 +302,7 @@
    "fuente": null
   },
   "gsk": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "hired": {
@@ -314,15 +314,15 @@
    "fuente": null
   },
   "hsbc": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "ibm": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "icbc": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "implementalsystems": {
@@ -330,19 +330,19 @@
    "fuente": null
   },
   "infor": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "ivaxargentina": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "ivaxdiagnostics": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "iveco": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "jbkargentina": {
@@ -350,11 +350,11 @@
    "fuente": null
   },
   "johndeere": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "johnsonjohnson": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "jpmorgan": {
@@ -369,11 +369,11 @@
    }
   },
   "kearney": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "kpmg": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "lasegundaseguros": {
@@ -381,19 +381,19 @@
    "fuente": null
   },
   "loreal": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "makingsense": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "managementsolutions": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "mckinsey": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "medife": {
@@ -405,19 +405,19 @@
    "fuente": null
   },
   "mercadopago": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "mercedesbenz": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "mercklifescience": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "meta": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "metlife": {
@@ -436,7 +436,7 @@
    "fuente": null
   },
   "molinos": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "mongodb": {
@@ -447,11 +447,11 @@
    }
   },
   "moni": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "montpellier": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "mrm": {
@@ -459,19 +459,19 @@
    "fuente": null
   },
   "msd": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "n5": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "naranjax": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "nestle": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "newsan": {
@@ -479,19 +479,19 @@
    "fuente": null
   },
   "nttdata": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "okamstudio": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "oneflow": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "opella": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "osde": {
@@ -499,11 +499,11 @@
    "fuente": null
   },
   "pampaenergia": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "panamericanenergy": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "paradigma": {
@@ -515,19 +515,19 @@
    "fuente": null
   },
   "pedidosya": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "pepsico": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "pg": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "pharmagenexus": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "pilkington": {
@@ -535,23 +535,23 @@
    "fuente": null
   },
   "pomelo": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "practia": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "price": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "puma": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "pwc": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "quikhirestaffing": {
@@ -559,27 +559,27 @@
    "fuente": null
   },
   "raffo": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "renault": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "revdev": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "ripio": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "roche": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "roemmers": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "salessystemsai": {
@@ -591,15 +591,15 @@
    "fuente": null
   },
   "santander": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "sap": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "scania": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "sezzle": {
@@ -610,11 +610,11 @@
    }
   },
   "sidus": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "sirius": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "snowflake": {
@@ -629,11 +629,11 @@
    "fuente": null
   },
   "sonymusic": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "southworks": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "sovos": {
@@ -641,11 +641,11 @@
    "fuente": null
   },
   "stellantiis": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "supervielle": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "swissmedical": {
@@ -657,43 +657,43 @@
    "fuente": null
   },
   "techint": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "tecpetrol": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "telecom": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "teradata": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "teva": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "thermofisherscientific": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "totvs": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "toyota": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "uala": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "unilever": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "universia": {
@@ -705,7 +705,7 @@
    "fuente": null
   },
   "volkswagen": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "widergy": {
@@ -713,23 +713,23 @@
    "fuente": null
   },
   "wienerlab": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "wolox": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "ypf": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "zapo": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   },
   "zs": {
-   "fecha": "2026-10-17",
+   "fecha": "2026-10-24",
    "fuente": null
   }
  },
@@ -738,7 +738,7 @@
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-23",
+ "ultima_corrida": "2026-10-24",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
@@ -753,6 +753,7 @@
    "https://himalayas.app/companies/affidea-bv/jobs/junior-devops-engineer": "2026-10-18",
    "https://himalayas.app/companies/affidea-bv/jobs/junior-digital-innovation-engineer": "2026-10-18",
    "https://himalayas.app/companies/affidea-bv/jobs/qa-and-uat-tester": "2026-10-16",
+   "https://himalayas.app/companies/agentplace/jobs/ai-agent-builder-vibe-coder": "2026-10-24",
    "https://himalayas.app/companies/altus-digital/jobs/salesforce-marketing-cloud-sfmc-developer": "2026-10-13",
    "https://himalayas.app/companies/altus-digital/jobs/salesforce-marketing-cloud-sfmc-email-specialist": "2026-10-13",
    "https://himalayas.app/companies/alu/jobs/wcn-alu-curriculum-development-intern": "2026-10-09",
@@ -769,11 +770,13 @@
    "https://himalayas.app/companies/ctl-information-technology/jobs/analista-de-ciberseguridad-jr": "2026-10-10",
    "https://himalayas.app/companies/ctl-information-technology/jobs/sysadmin-jr-monitoring": "2026-10-10",
    "https://himalayas.app/companies/emetlab/jobs/junior-software-engineer": "2026-10-12",
+   "https://himalayas.app/companies/endavant/jobs/performance-media-analyst-6962424776": "2026-10-24",
    "https://himalayas.app/companies/ewor-gmbh/jobs/ai-research-lab-co-founder-cmo-100-remote-m-f-d-5545667816": "2026-10-18",
    "https://himalayas.app/companies/five-and-fly/jobs/analytics-engineering-intern": "2026-10-23",
    "https://himalayas.app/companies/flowmingo/jobs/growth-product-intern-fresher": "2026-10-09",
    "https://himalayas.app/companies/flowmingo/jobs/product-intern-fresher": "2026-10-09",
    "https://himalayas.app/companies/flowmingo/jobs/qa-qc-intern": "2026-10-09",
+   "https://himalayas.app/companies/fyg-for-your-growth/jobs/business-development": "2026-10-24",
    "https://himalayas.app/companies/gitlab-com/jobs/backend-frontend-and-fullstack-engineering-expression-of-interest-form": "2026-10-09",
    "https://himalayas.app/companies/gitlab-com/jobs/customer-success-expression-of-interest-form": "2026-10-09",
    "https://himalayas.app/companies/gitlab-com/jobs/product-design-expression-of-interest-form": "2026-10-09",
@@ -791,6 +794,7 @@
    "https://himalayas.app/companies/hire-hangar/jobs/msp-technical-support-specialist": "2026-10-09",
    "https://himalayas.app/companies/holiday-world/jobs/software-engineer-internship-unpaid": "2026-10-16",
    "https://himalayas.app/companies/hostaway/jobs/customer-onboarding-specialist-100-remote-latam": "2026-10-23",
+   "https://himalayas.app/companies/iclosed/jobs/customer-support-representative": "2026-10-24",
    "https://himalayas.app/companies/identifeye-health/jobs/join-our-talent-community": "2026-10-09",
    "https://himalayas.app/companies/interlaced/jobs/it-support-technician-i-buenos-aires": "2026-10-17",
    "https://himalayas.app/companies/jobsity/jobs/sales-development-representative-sdr-technology-business-unit": "2026-10-18",
@@ -798,6 +802,7 @@
    "https://himalayas.app/companies/major-league-hacking/jobs/technical-content-streamer": "2026-10-16",
    "https://himalayas.app/companies/makerble/jobs/automated-tester": "2026-10-17",
    "https://himalayas.app/companies/makerble/jobs/devops-volunteer": "2026-10-17",
+   "https://himalayas.app/companies/masalto/jobs/operations-systems-assistant-breezeway-hubspot": "2026-10-24",
    "https://himalayas.app/companies/metasys/jobs/automation-qa-engineer-internship": "2026-10-23",
    "https://himalayas.app/companies/metasys/jobs/data-architect-internship": "2026-10-23",
    "https://himalayas.app/companies/metasys/jobs/data-scientist-internship": "2026-10-23",
@@ -807,6 +812,7 @@
    "https://himalayas.app/companies/metasys/jobs/mlops-engineer-internship": "2026-10-23",
    "https://himalayas.app/companies/metasys/jobs/performance-tester-internship": "2026-10-23",
    "https://himalayas.app/companies/metasys/jobs/product-manager-internship": "2026-10-23",
+   "https://himalayas.app/companies/metasys/jobs/support-engineer-internship": "2026-10-24",
    "https://himalayas.app/companies/metasys/jobs/technical-architect-frontend-backend-internship": "2026-10-23",
    "https://himalayas.app/companies/micro1/jobs/consumer-reviewer": "2026-10-13",
    "https://himalayas.app/companies/micro1/jobs/evaluation-specialist-recent-grad-6119027108": "2026-10-21",
@@ -825,6 +831,7 @@
    "https://himalayas.app/companies/pratham-international/jobs/general-application": "2026-10-18",
    "https://himalayas.app/companies/prologa/jobs/bewerberpool": "2026-10-09",
    "https://himalayas.app/companies/qwp-gmbh/jobs/werkstudent-ai-agents-social-growth-m-w-d": "2026-10-09",
+   "https://himalayas.app/companies/raona/jobs/ux-ui-designer-jr": "2026-10-24",
    "https://himalayas.app/companies/resilio-partners/jobs/remote-ui-ux-reviewer-quality-assurance-qa": "2026-10-19",
    "https://himalayas.app/companies/ritual-net/jobs/research-intern-1464631102": "2026-10-09",
    "https://himalayas.app/companies/ritual-net/jobs/software-engineer-intern-9031169445": "2026-10-09",
@@ -847,6 +854,7 @@
    "https://himalayas.app/companies/tether-operations-limited/jobs/junior-project-manager-keet-p2p-100-remote": "2026-10-12",
    "https://himalayas.app/companies/tether-operations-limited/jobs/junior-project-manager-keet-p2p-100-remote-2515616695": "2026-10-16",
    "https://himalayas.app/companies/tether-operations-limited/jobs/research-engineer-intern-video-multimodal-llm": "2026-10-09",
+   "https://himalayas.app/companies/the-silverlogic/jobs/sales-assistant-latam": "2026-10-24",
    "https://himalayas.app/companies/trueml/jobs/jr-devops-engineer": "2026-10-09",
    "https://himalayas.app/companies/trueml/jobs/junior-sdet-quality-engineer-1": "2026-10-12",
    "https://himalayas.app/companies/urban-systems/jobs/open-application-for-students": "2026-10-09",
@@ -870,6 +878,7 @@
   },
   "_jobicy": {
    "149160": "2026-10-15",
+   "149523": "2026-10-24",
    "150369": "2026-10-11",
    "151020": "2026-10-19",
    "151333": "2026-10-22",
