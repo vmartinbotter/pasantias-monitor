@@ -768,9 +768,10 @@
  "fallas": {
   "delltechnologies": 2,
   "mercadolibre": 2,
-  "microsoft": 2
+  "microsoft": 2,
+  "pfizer": 1
  },
- "ultima_corrida": "2026-10-27",
+ "ultima_corrida": "2026-10-28",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
@@ -814,6 +815,7 @@
    "https://himalayas.app/companies/flux-it/jobs/react-developer-jr": "2026-10-27",
    "https://himalayas.app/companies/flux-it/jobs/ux-ui-designer-jr": "2026-10-27",
    "https://himalayas.app/companies/fyg-for-your-growth/jobs/business-development": "2026-10-24",
+   "https://himalayas.app/companies/g2i/jobs/tech-talent-pool-engineers-data-and-ai-ml": "2026-10-28",
    "https://himalayas.app/companies/gitlab-com/jobs/backend-frontend-and-fullstack-engineering-expression-of-interest-form": "2026-10-09",
    "https://himalayas.app/companies/gitlab-com/jobs/customer-success-expression-of-interest-form": "2026-10-09",
    "https://himalayas.app/companies/gitlab-com/jobs/product-design-expression-of-interest-form": "2026-10-09",
@@ -892,6 +894,7 @@
    "https://himalayas.app/companies/sezzle/jobs/fraud-disputes-intern-898116112": "2026-10-09",
    "https://himalayas.app/companies/sezzle/jobs/marketing-growth-analytics-operations-intern": "2026-10-09",
    "https://himalayas.app/companies/sezzle/jobs/marketing-growth-communications-intern": "2026-10-09",
+   "https://himalayas.app/companies/sezzle/jobs/product-manager-intern-shopx-rewards-4923875075": "2026-10-28",
    "https://himalayas.app/companies/sezzle/jobs/risk-disputes-intern-1401106808": "2026-10-09",
    "https://himalayas.app/companies/skillsecurex/jobs/full-stack-web-developer-intern": "2026-10-25",
    "https://himalayas.app/companies/stefanini/jobs/analista-soporte-tecnico-data-jr": "2026-10-25",
