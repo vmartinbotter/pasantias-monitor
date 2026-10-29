@@ -768,10 +768,9 @@
  "fallas": {
   "delltechnologies": 2,
   "mercadolibre": 2,
-  "microsoft": 2,
-  "pfizer": 1
+  "microsoft": 2
  },
- "ultima_corrida": "2026-10-28",
+ "ultima_corrida": "2026-10-29",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
@@ -830,6 +829,8 @@
    "https://himalayas.app/companies/gwen/jobs/ux-design-intern": "2026-10-09",
    "https://himalayas.app/companies/hadley-designs/jobs/illustration-assistant": "2026-10-12",
    "https://himalayas.app/companies/headspin/jobs/junior-support-engineer": "2026-10-16",
+   "https://himalayas.app/companies/highscale/jobs/associate-producer-8313366155": "2026-10-29",
+   "https://himalayas.app/companies/hire-hangar/jobs/client-implementation-operations-analyst-1958894794": "2026-10-29",
    "https://himalayas.app/companies/hire-hangar/jobs/customer-support-specialist-ai-assisted": "2026-10-18",
    "https://himalayas.app/companies/hire-hangar/jobs/msp-technical-support-specialist": "2026-10-09",
    "https://himalayas.app/companies/holiday-world/jobs/software-engineer-internship-unpaid": "2026-10-16",
@@ -990,7 +991,9 @@
   "salesforce": {
    "/job/Argentina---Buenos-Aires/LATAM-Internship-Program---Sales-Strategy-Intern--Argentina-_JR362431-1": "2026-10-02"
   },
-  "sanofi": {},
+  "sanofi": {
+   "/job/Buenos-Aires/Customer-Experience-Specialist--APM-Vacunas-_R2876466": "2026-10-29"
+  },
   "servicenow": {},
   "sezzle": {
    "6668066003": "2026-10-09",
