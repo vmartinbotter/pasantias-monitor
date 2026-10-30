@@ -83,7 +83,7 @@
    "fuente": null
   },
   "bcg": {
-   "fecha": "2026-10-23",
+   "fecha": "2026-10-30",
    "fuente": null
   },
   "belatrix": {
@@ -298,7 +298,7 @@
    "fuente": null
   },
   "greencode": {
-   "fecha": "2026-10-23",
+   "fecha": "2026-10-30",
    "fuente": null
   },
   "griddynamicsinernational": {
@@ -770,10 +770,11 @@
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-29",
+ "ultima_corrida": "2026-10-30",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
+   "conversational-ai-qa-specialist-evolution-collect-llc-remote": "2026-10-30",
    "desarrollador-a-full-stack-jr-bc-tecnologia-remote": "2026-10-09",
    "desarrollador-net-framework-web-forms-latam-qulane-remote-1993": "2026-10-09",
    "junior-it-support-technician-bitmax-technologies-llc-remote": "2026-10-09",
@@ -796,6 +797,8 @@
    "https://himalayas.app/companies/bold/jobs/associate-product-manager-real-time-payments": "2026-10-16",
    "https://himalayas.app/companies/bridges-for-enterprise/jobs/cyber-security-volunteer": "2026-10-17",
    "https://himalayas.app/companies/businesswebsolutions/jobs/web-developer-intern": "2026-10-25",
+   "https://himalayas.app/companies/centene-corporation/jobs/ai-design-systems-intern-master-s-summer-2027": "2026-10-30",
+   "https://himalayas.app/companies/centene-corporation/jobs/digital-design-operations-intern-master-s-summer-2027": "2026-10-30",
    "https://himalayas.app/companies/cloudcops/jobs/junior-devops-cloud-engineer": "2026-10-09",
    "https://himalayas.app/companies/coconut/jobs/ghl-marketing-specialist-job-code-1785194674180": "2026-10-09",
    "https://himalayas.app/companies/concurrences/jobs/ai-full-stack-developer-new-grad": "2026-10-27",
@@ -891,12 +894,14 @@
    "https://himalayas.app/companies/sarvify/jobs/intern-html-css-js-python": "2026-10-09",
    "https://himalayas.app/companies/sarvify/jobs/intern-mern-stack": "2026-10-09",
    "https://himalayas.app/companies/scandiweb/jobs/junior-project-manager-for-ecommerce-projects-3824253510": "2026-10-12",
+   "https://himalayas.app/companies/selene/jobs/escrow-analysis-specialist-i": "2026-10-30",
    "https://himalayas.app/companies/sezzle/jobs/chargeback-operations-intern-9169446729": "2026-10-09",
    "https://himalayas.app/companies/sezzle/jobs/fraud-disputes-intern-898116112": "2026-10-09",
    "https://himalayas.app/companies/sezzle/jobs/marketing-growth-analytics-operations-intern": "2026-10-09",
    "https://himalayas.app/companies/sezzle/jobs/marketing-growth-communications-intern": "2026-10-09",
    "https://himalayas.app/companies/sezzle/jobs/product-manager-intern-shopx-rewards-4923875075": "2026-10-28",
    "https://himalayas.app/companies/sezzle/jobs/risk-disputes-intern-1401106808": "2026-10-09",
+   "https://himalayas.app/companies/sigitek-software-services/jobs/it-software-sales-executive": "2026-10-30",
    "https://himalayas.app/companies/skillsecurex/jobs/full-stack-web-developer-intern": "2026-10-25",
    "https://himalayas.app/companies/stefanini/jobs/analista-soporte-tecnico-data-jr": "2026-10-25",
    "https://himalayas.app/companies/stefanini/jobs/analista-soporte-tecnico-data-trainee": "2026-10-25",
