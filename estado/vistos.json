@@ -1,11 +1,11 @@
 {
  "auto_fuentes": {
   "abbot": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "accenture": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "accionait": {
@@ -13,11 +13,11 @@
    "fuente": null
   },
   "adblickagro": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "adidas": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "agileengine": {
@@ -35,11 +35,11 @@
    }
   },
   "arcor": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "auth0": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "aws": {
@@ -51,35 +51,35 @@
    "fuente": null
   },
   "bago": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "bain": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "bancoitau": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "bancomacro": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "base22": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "baufest": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "bayer": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "bbva": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "bcg": {
@@ -87,11 +87,11 @@
    "fuente": null
   },
   "belatrix": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "bioprofarma": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "boschgroup": {
@@ -106,7 +106,7 @@
    "fuente": null
   },
   "bristolmyerssquibb": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "brubank": {
@@ -121,7 +121,7 @@
    "fuente": null
   },
   "capgemini": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "cargill": {
@@ -133,27 +133,27 @@
    "fuente": null
   },
   "casasco": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "cencosud": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "centralpuerto": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "cisco": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "craveri": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "danone": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "databricks": {
@@ -168,7 +168,7 @@
    "fuente": null
   },
   "deloitte": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "despegar": {
@@ -208,7 +208,7 @@
    "fuente": null
   },
   "eleaphoenix": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "elevo": {
@@ -216,15 +216,15 @@
    "fuente": null
   },
   "elililly": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "emergeinteractive": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "encora": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "endava": {
@@ -235,15 +235,15 @@
    }
   },
   "epamsystems": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "epicor": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "etermax": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "flatironsoftware": {
@@ -251,15 +251,15 @@
    "fuente": null
   },
   "ford": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "gador": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "galicia": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "ge": {
@@ -267,7 +267,7 @@
    "fuente": null
   },
   "gehealthcare": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "gestamp": {
@@ -283,7 +283,7 @@
    "fuente": null
   },
   "globant": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "gofundme": {
@@ -294,7 +294,7 @@
    }
   },
   "google": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "greencode": {
@@ -306,7 +306,7 @@
    "fuente": null
   },
   "gsk": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "hired": {
@@ -318,7 +318,7 @@
    "fuente": null
   },
   "hsbc": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "humanitas": {
@@ -326,11 +326,11 @@
    "fuente": null
   },
   "ibm": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "icbc": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "implementalsystems": {
@@ -338,19 +338,19 @@
    "fuente": null
   },
   "infor": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "ivaxargentina": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "ivaxdiagnostics": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "iveco": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "jbkargentina": {
@@ -358,11 +358,11 @@
    "fuente": null
   },
   "johndeere": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "johnsonjohnson": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "jpmorgan": {
@@ -377,11 +377,11 @@
    }
   },
   "kearney": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "kpmg": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "lasegundaseguros": {
@@ -389,19 +389,19 @@
    "fuente": null
   },
   "loreal": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "makingsense": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "managementsolutions": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "mckinsey": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "medife": {
@@ -413,19 +413,19 @@
    "fuente": null
   },
   "mercadopago": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "mercedesbenz": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "mercklifescience": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "meta": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "metlife": {
@@ -444,7 +444,7 @@
    "fuente": null
   },
   "molinos": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "mongodb": {
@@ -455,11 +455,11 @@
    }
   },
   "moni": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "montpellier": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "moura": {
@@ -471,19 +471,19 @@
    "fuente": null
   },
   "msd": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "n5": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "naranjax": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "nestle": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "newsan": {
@@ -491,19 +491,19 @@
    "fuente": null
   },
   "nttdata": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "okamstudio": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "oneflow": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "opella": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "osde": {
@@ -511,11 +511,11 @@
    "fuente": null
   },
   "pampaenergia": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "panamericanenergy": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "paradigma": {
@@ -527,11 +527,11 @@
    "fuente": null
   },
   "pedidosya": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "pepsico": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "personal": {
@@ -539,11 +539,11 @@
    "fuente": null
   },
   "pg": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "pharmagenexus": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "pilkington": {
@@ -551,23 +551,23 @@
    "fuente": null
   },
   "pomelo": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "practia": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "price": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "puma": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "pwc": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "quikhirestaffing": {
@@ -575,7 +575,7 @@
    "fuente": null
   },
   "raffo": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "randstad": {
@@ -587,23 +587,23 @@
    "fuente": null
   },
   "renault": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "revdev": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "ripio": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "roche": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "roemmers": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "salessystemsai": {
@@ -615,15 +615,15 @@
    "fuente": null
   },
   "santander": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "sap": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "scania": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "sezzle": {
@@ -634,11 +634,11 @@
    }
   },
   "sidus": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "sirius": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "snowflake": {
@@ -653,11 +653,11 @@
    "fuente": null
   },
   "sonymusic": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "southworks": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "sovos": {
@@ -665,11 +665,11 @@
    "fuente": null
   },
   "stellantiis": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "supervielle": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "swissmedical": {
@@ -681,15 +681,15 @@
    "fuente": null
   },
   "techint": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "tecpetrol": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "telecom": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "tenaris": {
@@ -697,7 +697,7 @@
    "fuente": null
   },
   "teradata": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "ternium": {
@@ -705,27 +705,27 @@
    "fuente": null
   },
   "teva": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "thermofisherscientific": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "totvs": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "toyota": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "uala": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "unilever": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "universia": {
@@ -737,7 +737,7 @@
    "fuente": null
   },
   "volkswagen": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "widergy": {
@@ -745,23 +745,23 @@
    "fuente": null
   },
   "wienerlab": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "wolox": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "ypf": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "zapo": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   },
   "zs": {
-   "fecha": "2026-10-24",
+   "fecha": "2026-10-31",
    "fuente": null
   }
  },
@@ -770,7 +770,7 @@
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-30",
+ "ultima_corrida": "2026-10-31",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
@@ -794,10 +794,12 @@
    "https://himalayas.app/companies/avary-ai/jobs/data-scientist-intern": "2026-10-13",
    "https://himalayas.app/companies/banco-plata-s-a-institucion-de-banca-multiple/jobs/analytics-engineer-dwh-junior-middle": "2026-10-25",
    "https://himalayas.app/companies/banco-plata-s-a-institucion-de-banca-multiple/jobs/antifraud-analyst-junior": "2026-10-19",
+   "https://himalayas.app/companies/banco-plata-s-a-institucion-de-banca-multiple/jobs/business-analyst-junior-antifraud-disputes": "2026-10-31",
    "https://himalayas.app/companies/bold/jobs/associate-product-manager-real-time-payments": "2026-10-16",
    "https://himalayas.app/companies/bridges-for-enterprise/jobs/cyber-security-volunteer": "2026-10-17",
    "https://himalayas.app/companies/businesswebsolutions/jobs/web-developer-intern": "2026-10-25",
    "https://himalayas.app/companies/centene-corporation/jobs/ai-design-systems-intern-master-s-summer-2027": "2026-10-30",
+   "https://himalayas.app/companies/centene-corporation/jobs/contract-negotiator-i": "2026-10-31",
    "https://himalayas.app/companies/centene-corporation/jobs/digital-design-operations-intern-master-s-summer-2027": "2026-10-30",
    "https://himalayas.app/companies/cloudcops/jobs/junior-devops-cloud-engineer": "2026-10-09",
    "https://himalayas.app/companies/coconut/jobs/ghl-marketing-specialist-job-code-1785194674180": "2026-10-09",
@@ -818,6 +820,7 @@
    "https://himalayas.app/companies/flux-it/jobs/ux-ui-designer-jr": "2026-10-27",
    "https://himalayas.app/companies/fyg-for-your-growth/jobs/business-development": "2026-10-24",
    "https://himalayas.app/companies/g2i/jobs/tech-talent-pool-engineers-data-and-ai-ml": "2026-10-28",
+   "https://himalayas.app/companies/geisinger/jobs/pharmacy-technician-call-center-2531619469": "2026-10-31",
    "https://himalayas.app/companies/gitlab-com/jobs/backend-frontend-and-fullstack-engineering-expression-of-interest-form": "2026-10-09",
    "https://himalayas.app/companies/gitlab-com/jobs/customer-success-expression-of-interest-form": "2026-10-09",
    "https://himalayas.app/companies/gitlab-com/jobs/product-design-expression-of-interest-form": "2026-10-09",
@@ -885,6 +888,7 @@
    "https://himalayas.app/companies/parexel/jobs/clinical-research-associate-all-levels-7730757966": "2026-10-22",
    "https://himalayas.app/companies/partyhat/jobs/animator": "2026-10-16",
    "https://himalayas.app/companies/pratham-international/jobs/general-application": "2026-10-18",
+   "https://himalayas.app/companies/premera-blue-cross/jobs/member-engagement-consultant-i": "2026-10-31",
    "https://himalayas.app/companies/prologa/jobs/bewerberpool": "2026-10-09",
    "https://himalayas.app/companies/qwp-gmbh/jobs/werkstudent-ai-agents-social-growth-m-w-d": "2026-10-09",
    "https://himalayas.app/companies/raona/jobs/ux-ui-designer-jr": "2026-10-24",
