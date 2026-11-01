@@ -164,7 +164,7 @@
    }
   },
   "delltechnologies": {
-   "fecha": "2026-10-25",
+   "fecha": "2026-11-01",
    "fuente": null
   },
   "deloitte": {
@@ -186,7 +186,7 @@
    }
   },
   "direccionahr": {
-   "fecha": "2026-10-25",
+   "fecha": "2026-11-01",
    "fuente": null
   },
   "disney": {
@@ -322,7 +322,7 @@
    "fuente": null
   },
   "humanitas": {
-   "fecha": "2026-10-25",
+   "fecha": "2026-11-01",
    "fuente": null
   },
   "ibm": {
@@ -409,7 +409,7 @@
    "fuente": null
   },
   "mercadolibre": {
-   "fecha": "2026-10-25",
+   "fecha": "2026-11-01",
    "fuente": null
   },
   "mercadopago": {
@@ -440,7 +440,7 @@
    "fuente": null
   },
   "microsoft": {
-   "fecha": "2026-10-25",
+   "fecha": "2026-11-01",
    "fuente": null
   },
   "molinos": {
@@ -463,7 +463,7 @@
    "fuente": null
   },
   "moura": {
-   "fecha": "2026-10-25",
+   "fecha": "2026-11-01",
    "fuente": null
   },
   "mrm": {
@@ -535,7 +535,7 @@
    "fuente": null
   },
   "personal": {
-   "fecha": "2026-10-25",
+   "fecha": "2026-11-01",
    "fuente": null
   },
   "pg": {
@@ -579,11 +579,11 @@
    "fuente": null
   },
   "randstad": {
-   "fecha": "2026-10-25",
+   "fecha": "2026-11-01",
    "fuente": null
   },
   "redmond": {
-   "fecha": "2026-10-25",
+   "fecha": "2026-11-01",
    "fuente": null
   },
   "renault": {
@@ -677,7 +677,7 @@
    "fuente": null
   },
   "syngenta": {
-   "fecha": "2026-10-25",
+   "fecha": "2026-11-01",
    "fuente": null
   },
   "techint": {
@@ -693,7 +693,7 @@
    "fuente": null
   },
   "tenaris": {
-   "fecha": "2026-10-25",
+   "fecha": "2026-11-01",
    "fuente": null
   },
   "teradata": {
@@ -701,7 +701,7 @@
    "fuente": null
   },
   "ternium": {
-   "fecha": "2026-10-25",
+   "fecha": "2026-11-01",
    "fuente": null
   },
   "teva": {
@@ -733,7 +733,7 @@
    "fuente": null
   },
   "visa": {
-   "fecha": "2026-10-25",
+   "fecha": "2026-11-01",
    "fuente": null
   },
   "volkswagen": {
@@ -770,7 +770,7 @@
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-10-31",
+ "ultima_corrida": "2026-11-01",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
@@ -795,6 +795,7 @@
    "https://himalayas.app/companies/banco-plata-s-a-institucion-de-banca-multiple/jobs/analytics-engineer-dwh-junior-middle": "2026-10-25",
    "https://himalayas.app/companies/banco-plata-s-a-institucion-de-banca-multiple/jobs/antifraud-analyst-junior": "2026-10-19",
    "https://himalayas.app/companies/banco-plata-s-a-institucion-de-banca-multiple/jobs/business-analyst-junior-antifraud-disputes": "2026-10-31",
+   "https://himalayas.app/companies/binance/jobs/binance-accelerator-program-applied-ai-application-engineer-4805818739": "2026-11-01",
    "https://himalayas.app/companies/bold/jobs/associate-product-manager-real-time-payments": "2026-10-16",
    "https://himalayas.app/companies/bridges-for-enterprise/jobs/cyber-security-volunteer": "2026-10-17",
    "https://himalayas.app/companies/businesswebsolutions/jobs/web-developer-intern": "2026-10-25",
@@ -820,6 +821,7 @@
    "https://himalayas.app/companies/flux-it/jobs/ux-ui-designer-jr": "2026-10-27",
    "https://himalayas.app/companies/fyg-for-your-growth/jobs/business-development": "2026-10-24",
    "https://himalayas.app/companies/g2i/jobs/tech-talent-pool-engineers-data-and-ai-ml": "2026-10-28",
+   "https://himalayas.app/companies/g2i/jobs/tech-talent-pool-engineers-data-and-ai-ml-5668161601": "2026-11-01",
    "https://himalayas.app/companies/geisinger/jobs/pharmacy-technician-call-center-2531619469": "2026-10-31",
    "https://himalayas.app/companies/gitlab-com/jobs/backend-frontend-and-fullstack-engineering-expression-of-interest-form": "2026-10-09",
    "https://himalayas.app/companies/gitlab-com/jobs/customer-success-expression-of-interest-form": "2026-10-09",
@@ -838,13 +840,17 @@
    "https://himalayas.app/companies/highscale/jobs/associate-producer-8313366155": "2026-10-29",
    "https://himalayas.app/companies/hire-hangar/jobs/client-implementation-operations-analyst-1958894794": "2026-10-29",
    "https://himalayas.app/companies/hire-hangar/jobs/customer-support-specialist-ai-assisted": "2026-10-18",
+   "https://himalayas.app/companies/hire-hangar/jobs/junior-data-analyst-2593566728": "2026-11-01",
    "https://himalayas.app/companies/hire-hangar/jobs/msp-technical-support-specialist": "2026-10-09",
    "https://himalayas.app/companies/holiday-world/jobs/software-engineer-internship-unpaid": "2026-10-16",
    "https://himalayas.app/companies/hostaway/jobs/customer-onboarding-specialist-100-remote-latam": "2026-10-23",
    "https://himalayas.app/companies/iclosed/jobs/customer-support-representative": "2026-10-24",
    "https://himalayas.app/companies/identifeye-health/jobs/join-our-talent-community": "2026-10-09",
    "https://himalayas.app/companies/interlaced/jobs/it-support-technician-i-buenos-aires": "2026-10-17",
+   "https://himalayas.app/companies/ioet/jobs/jr-backend-engineer": "2026-11-01",
    "https://himalayas.app/companies/jobsity/jobs/sales-development-representative-sdr-technology-business-unit": "2026-10-18",
+   "https://himalayas.app/companies/kis-solutions/jobs/application-developer-intern": "2026-11-01",
+   "https://himalayas.app/companies/kis-solutions/jobs/product-engineer-intern": "2026-11-01",
    "https://himalayas.app/companies/kodland/jobs/latam-web-design": "2026-10-09",
    "https://himalayas.app/companies/major-league-hacking/jobs/technical-content-streamer": "2026-10-16",
    "https://himalayas.app/companies/makerble/jobs/automated-tester": "2026-10-17",
@@ -879,17 +885,26 @@
    "https://himalayas.app/companies/mimidentalclinic/jobs/junior-software-engineer": "2026-10-17",
    "https://himalayas.app/companies/mixrank/jobs/junior-software-engineer-remote-global-full-time": "2026-10-25",
    "https://himalayas.app/companies/moneygram/jobs/implementation-coordinator": "2026-10-10",
+   "https://himalayas.app/companies/my-va-support-inc/jobs/entry-level-structural-designer": "2026-11-01",
+   "https://himalayas.app/companies/my-va-support-inc/jobs/web-developer": "2026-11-01",
+   "https://himalayas.app/companies/netforemost-inc/jobs/trainee-flutter-developer": "2026-11-01",
    "https://himalayas.app/companies/newsbreak/jobs/business-development-strategy-intern-mba-nearby-ai": "2026-10-09",
    "https://himalayas.app/companies/nexoratalent/jobs/remote-customer-support-specialist-2931373364": "2026-10-09",
    "https://himalayas.app/companies/nightowl-consulting/jobs/autocad-drafter-jr-estimator": "2026-10-09",
    "https://himalayas.app/companies/nightowl-consulting/jobs/jr-loan-coordinator-7538276244": "2026-10-18",
    "https://himalayas.app/companies/nightowl-consulting/jobs/junior-mortgage-processor": "2026-10-09",
    "https://himalayas.app/companies/opensesame/jobs/associate-business-systems-administrator-remote-argentina-or-mexico": "2026-10-22",
+   "https://himalayas.app/companies/ovation-law-firm/jobs/intake-qa-specialist-latam-1125782346": "2026-11-01",
    "https://himalayas.app/companies/parexel/jobs/clinical-research-associate-all-levels-7730757966": "2026-10-22",
    "https://himalayas.app/companies/partyhat/jobs/animator": "2026-10-16",
+   "https://himalayas.app/companies/pole-to-win-international/jobs/player-support-confidential-latam": "2026-11-01",
    "https://himalayas.app/companies/pratham-international/jobs/general-application": "2026-10-18",
    "https://himalayas.app/companies/premera-blue-cross/jobs/member-engagement-consultant-i": "2026-10-31",
    "https://himalayas.app/companies/prologa/jobs/bewerberpool": "2026-10-09",
+   "https://himalayas.app/companies/prometeo-talent/jobs/analista-de-datos-100-remoto-latam": "2026-11-01",
+   "https://himalayas.app/companies/prometeo-talent/jobs/data-analyst-100-remote-latam-ph": "2026-11-01",
+   "https://himalayas.app/companies/prometeo-talent/jobs/machine-learning-analyst-100-remote-latam": "2026-11-01",
+   "https://himalayas.app/companies/prometeo-talent/jobs/machine-learning-analyst-100-remoto-latam": "2026-11-01",
    "https://himalayas.app/companies/qwp-gmbh/jobs/werkstudent-ai-agents-social-growth-m-w-d": "2026-10-09",
    "https://himalayas.app/companies/raona/jobs/ux-ui-designer-jr": "2026-10-24",
    "https://himalayas.app/companies/resilio-partners/jobs/remote-ui-ux-reviewer-quality-assurance-qa": "2026-10-19",
@@ -899,6 +914,7 @@
    "https://himalayas.app/companies/sarvify/jobs/intern-mern-stack": "2026-10-09",
    "https://himalayas.app/companies/scandiweb/jobs/junior-project-manager-for-ecommerce-projects-3824253510": "2026-10-12",
    "https://himalayas.app/companies/selene/jobs/escrow-analysis-specialist-i": "2026-10-30",
+   "https://himalayas.app/companies/sellfire/jobs/remote-sales-rep-us-market-ai-enabled-flexible-hours-independent-contractor": "2026-11-01",
    "https://himalayas.app/companies/sezzle/jobs/chargeback-operations-intern-9169446729": "2026-10-09",
    "https://himalayas.app/companies/sezzle/jobs/fraud-disputes-intern-898116112": "2026-10-09",
    "https://himalayas.app/companies/sezzle/jobs/marketing-growth-analytics-operations-intern": "2026-10-09",
