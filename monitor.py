@@ -115,7 +115,8 @@ def gspread_a1(row, col):
 
 
 # ------------------------------------------------------------------ Notificaciones
-def notificar(titulo: str, cuerpo_html: str, cuerpo_txt: str):
+def notificar(titulo: str, cuerpo_html: str, cuerpo_txt: str) -> bool:
+    """Manda por todos los canales configurados. Devuelve False si TODOS fallaron."""
     enviado = False
     tok, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
     if tok and chat:
@@ -137,13 +138,30 @@ def notificar(titulo: str, cuerpo_html: str, cuerpo_txt: str):
                      + cuerpo_html.strip().replace("\n", "<br>") + "</div>")
         msg.attach(MIMEText(cuerpo_txt, "plain", "utf-8"))
         msg.attach(MIMEText(html_mail, "html", "utf-8"))
-        with smtplib.SMTP_SSL(os.environ.get("SMTP_HOST", "smtp.gmail.com"), 465) as s:
-            s.login(user, pwd)
-            s.send_message(msg)
-        enviado = True
+        host = os.environ.get("SMTP_HOST", "smtp.gmail.com")
+        for intento, (puerto, ssl) in enumerate([(465, True), (587, False), (465, True)]):
+            try:
+                if intento:
+                    time.sleep(15)
+                if ssl:
+                    srv = smtplib.SMTP_SSL(host, puerto, timeout=30)
+                else:
+                    srv = smtplib.SMTP(host, puerto, timeout=30)
+                    srv.starttls()
+                with srv:
+                    srv.login(user, pwd.replace(" ", ""))
+                    srv.send_message(msg)
+                print("Mail: enviado")
+                enviado = True
+                break
+            except smtplib.SMTPAuthenticationError as e:
+                print(f"Mail: Gmail rechazó usuario/contraseña ({e.smtp_code}). "
+                      "Generá una contraseña de aplicación nueva y actualizá SMTP_PASS.", file=sys.stderr)
+                break
+            except Exception as e:  # noqa: BLE001
+                print(f"Mail: intento {intento + 1} falló ({type(e).__name__}: {e})", file=sys.stderr)
     phone, apikey = os.environ.get("WHATSAPP_PHONE"), os.environ.get("WHATSAPP_APIKEY")
     if phone and apikey:
-        # CallMeBot: servicio gratuito para mandarte WhatsApps a vos misma
         # CallMeBot: servicio gratuito para mandarte WhatsApps a vos misma
         partes, actual = [], f"*{titulo}*\n"
         for linea in cuerpo_txt.splitlines():
@@ -153,18 +171,23 @@ def notificar(titulo: str, cuerpo_html: str, cuerpo_txt: str):
             actual += linea + "\n"
         partes.append(actual)
         phone = re.sub(r"[^0-9]", "", phone)  # CallMeBot quiere solo dígitos: 549...
-        for p in partes:
-            r = requests.get("https://api.callmebot.com/whatsapp.php", timeout=30,
-                             params={"phone": phone, "text": p, "apikey": apikey.strip()})
-            # CallMeBot a veces responde 200 aunque falle, así que mostramos siempre la respuesta
-            resp = re.sub(r"<[^>]+>", " ", r.text)
-            print(f"WhatsApp [{r.status_code}]:", " ".join(resp.split())[:300])
-            time.sleep(3)  # CallMeBot limita la frecuencia de mensajes
-        enviado = True
+        try:
+            for p in partes:
+                r = requests.get("https://api.callmebot.com/whatsapp.php", timeout=30,
+                                 params={"phone": phone, "text": p, "apikey": apikey.strip()})
+                # CallMeBot a veces responde 200 aunque falle, así que mostramos siempre la respuesta
+                resp = re.sub(r"<[^>]+>", " ", r.text)
+                print(f"WhatsApp [{r.status_code}]:", " ".join(resp.split())[:300])
+                time.sleep(3)  # CallMeBot limita la frecuencia de mensajes
+            enviado = True
+        except Exception as e:  # noqa: BLE001
+            print(f"WhatsApp: falló ({type(e).__name__}: {e})", file=sys.stderr)
     if not (phone and apikey):
         print("WhatsApp: no configurado (faltan secrets WHATSAPP_PHONE / WHATSAPP_APIKEY)")
     if not enviado:
         print(f"\n=== {titulo} ===\n{cuerpo_txt}")
+    configurado = (tok and chat) or (user and pwd) or (phone and apikey)
+    return enviado or not configurado
 
 
 # ------------------------------------------------------------------ Nivel y área
@@ -300,6 +323,7 @@ def main():
             auto_keys.add(k)
 
     nuevos, sin_fuente, errores, cambios = [], [], [], []
+    fallo_aviso = False
     for key, (nombre, fila_nro, fila) in sorted(empresas.items()):
         if key not in fuentes:
             sin_fuente.append(nombre)
@@ -340,6 +364,7 @@ def main():
             print(f"    + [{j.nivel}{' · remoto' if j.remoto else ''}] {j.title} [{j.location}]")
         for j in frescos:
             ya[j.id] = date.today().isoformat()
+            j.vkey = key
             nuevos.append((nombre, j))
         if ws and fila_nro and cfg.get("actualizar_sheet"):
             # El Sheet es de pasantías: solo lo marcan las pasantías, no los puestos junior
@@ -378,6 +403,7 @@ def main():
         for j in frescos:
             print(f"    + [{j.nivel}] {j.company} — {j.title} [{j.location}]")
             ya[j.id] = date.today().isoformat()
+            j.vkey = fk
             j.abierto, j.portal = True, portal
             nuevos.append((j.company, j))
 
@@ -436,7 +462,11 @@ def main():
         if args.dry_run:
             print(f"\n[dry-run] {titulo}\n" + "\n".join(txt_lines))
         else:
-            notificar(titulo, "\n".join(html_lines), "\n".join(txt_lines))
+            if not notificar(titulo, "\n".join(html_lines), "\n".join(txt_lines)):
+                # No llegó por ningún canal: no los marco como vistos, así se reintentan mañana
+                for _, j in nuevos:
+                    vistos.get(j.vkey, {}).pop(j.id, None)
+                fallo_aviso = True
     else:
         print("Nada nuevo hoy.")
 
@@ -444,6 +474,9 @@ def main():
     if not args.dry_run:
         ESTADO.parent.mkdir(exist_ok=True)
         ESTADO.write_text(json.dumps(estado, indent=1, ensure_ascii=False, sort_keys=True))
+    if fallo_aviso:
+        # El estado ya quedó guardado; salgo con error para que GitHub te avise por mail
+        sys.exit("No se pudo mandar el aviso por ningún canal (ver mensajes de Mail/WhatsApp arriba)")
 
 
 if __name__ == "__main__":

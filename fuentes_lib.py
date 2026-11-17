@@ -28,17 +28,27 @@ class Job:
     url: str
 
 
-def _get(url, **kw):
-    r = requests.get(url, headers=HEADERS, timeout=TIMEOUT, **kw)
+def _pedir(metodo, url, **kw):
+    """Hace el pedido y, si el sitio dice "Too Many Requests" (429) o falla del lado
+    del servidor (5xx), espera y reintenta hasta 3 veces."""
+    import time
+    esperas = [5, 20, 60]
+    for intento in range(len(esperas) + 1):
+        r = requests.request(metodo, url, timeout=TIMEOUT, **kw)
+        if r.status_code not in (429, 500, 502, 503, 504) or intento == len(esperas):
+            break
+        ra = r.headers.get("Retry-After", "")
+        time.sleep(min(int(ra), 120) if ra.isdigit() else esperas[intento])
     r.raise_for_status()
     return r
+
+
+def _get(url, **kw):
+    return _pedir("GET", url, headers=HEADERS, **kw)
 
 
 def _post(url, json):
-    r = requests.post(url, headers={**HEADERS, "Content-Type": "application/json"},
-                      json=json, timeout=TIMEOUT)
-    r.raise_for_status()
-    return r
+    return _pedir("POST", url, headers={**HEADERS, "Content-Type": "application/json"}, json=json)
 
 
 # ---------------------------------------------------------------- Greenhouse
@@ -108,11 +118,18 @@ def _parse_workday(url):
     return p.netloc, p.netloc.split(".")[0], parts[0]
 
 
+# Workday corta (429) si se le pregunta mucho; con estas palabras alcanza
+# porque su buscador ya encuentra variantes (pasante -> pasantía, intern -> internship)
+WORKDAY_KEYWORDS = ["intern", "pasante", "trainee", "junior"]
+
+
 def workday(cfg, keywords):
+    import time
     host, tenant, site = _parse_workday(cfg["url"])
     api = f"https://{host}/wday/cxs/{tenant}/{site}/jobs"
     out, seen = [], set()
-    for kw in keywords:
+    for kw in cfg.get("palabras", WORKDAY_KEYWORDS):
+        time.sleep(1)  # ir despacio para que Workday no corte
         offset = 0
         while offset < 100:  # Workday pagina de a 20
             data = _post(api, {"appliedFacets": {}, "limit": 20, "offset": offset,
