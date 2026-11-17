@@ -32,7 +32,7 @@ import yaml
 
 from concurrent.futures import ThreadPoolExecutor
 
-from fuentes_lib import ADAPTERS, NO_LOCATION, PORTALES, autodetectar, workday_detalle
+from fuentes_lib import ADAPTERS, NO_LOCATION, PORTALES, Bloqueado, autodetectar, workday_detalle
 
 ROOT = Path(__file__).parent
 ESTADO = ROOT / "estado" / "vistos.json"
@@ -324,6 +324,7 @@ def main():
 
     nuevos, sin_fuente, errores, cambios = [], [], [], []
     fallo_aviso = False
+    bloqueadas = []
     for key, (nombre, fila_nro, fila) in sorted(empresas.items()):
         if key not in fuentes:
             sin_fuente.append(nombre)
@@ -343,6 +344,12 @@ def main():
                         continue
                     encontrados.append(j)
             fallas.pop(key, None)
+        except Bloqueado as e:
+            # El sitio nos frenó por exceso de consultas: no es que la fuente esté rota.
+            # No cuenta como falla; se reintenta mañana.
+            bloqueadas.append(nombre)
+            print(f"[saltada] {nombre}: {e}", file=sys.stderr)
+            continue
         except Exception as e:  # noqa: BLE001
             fallas[key] = fallas.get(key, 0) + 1
             print(f"[ERROR] {nombre}: {e}", file=sys.stderr)
@@ -470,6 +477,9 @@ def main():
     else:
         print("Nada nuevo hoy.")
 
+    if bloqueadas:
+        print(f"\nSalteadas hoy porque el sitio nos frenó (429), se reintentan mañana "
+              f"({len(bloqueadas)}): {', '.join(bloqueadas)}")
     print(f"\nEmpresas sin fuente configurada ({len(sin_fuente)}): {', '.join(sin_fuente)}")
     if not args.dry_run:
         ESTADO.parent.mkdir(exist_ok=True)

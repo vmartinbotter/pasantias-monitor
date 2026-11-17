@@ -28,17 +28,22 @@ class Job:
     url: str
 
 
-def _pedir(metodo, url, **kw):
+class Bloqueado(Exception):
+    """El sitio nos frenó por exceso de consultas (429) aun después de reintentar."""
+
+
+def _pedir(metodo, url, esperas=(5, 20, 60), **kw):
     """Hace el pedido y, si el sitio dice "Too Many Requests" (429) o falla del lado
-    del servidor (5xx), espera y reintenta hasta 3 veces."""
+    del servidor (5xx), espera y reintenta."""
     import time
-    esperas = [5, 20, 60]
     for intento in range(len(esperas) + 1):
         r = requests.request(metodo, url, timeout=TIMEOUT, **kw)
         if r.status_code not in (429, 500, 502, 503, 504) or intento == len(esperas):
             break
         ra = r.headers.get("Retry-After", "")
         time.sleep(min(int(ra), 120) if ra.isdigit() else esperas[intento])
+    if r.status_code == 429:
+        raise Bloqueado(f"429 Too Many Requests: {url}")
     r.raise_for_status()
     return r
 
@@ -47,8 +52,8 @@ def _get(url, **kw):
     return _pedir("GET", url, headers=HEADERS, **kw)
 
 
-def _post(url, json):
-    return _pedir("POST", url, headers={**HEADERS, "Content-Type": "application/json"}, json=json)
+def _post(url, json, **kw):
+    return _pedir("POST", url, headers={**HEADERS, "Content-Type": "application/json"}, json=json, **kw)
 
 
 # ---------------------------------------------------------------- Greenhouse
@@ -118,40 +123,83 @@ def _parse_workday(url):
     return p.netloc, p.netloc.split(".")[0], parts[0]
 
 
-# Workday corta (429) si se le pregunta mucho; con estas palabras alcanza
-# porque su buscador ya encuentra variantes (pasante -> pasantía, intern -> internship)
-WORKDAY_KEYWORDS = ["intern", "pasante", "trainee", "junior"]
+# Workday frena (429) si se le pregunta mucho. Para preguntar lo mínimo:
+# 1) una consulta para ver qué filtros de país tiene esa empresa,
+# 2) si tiene "Argentina", traer SOLO los avisos de Argentina (casi siempre 1-3 páginas).
+# El filtrado por título (pasantía / junior / área) se hace después en monitor.py.
+WORKDAY_ESPERAS = (10, 30)
+_workday_bloqueado = False
+
+
+def _buscar_facet(facets, pais="Argentina", padre=""):
+    """Busca en el árbol de filtros de Workday el id del país. Devuelve (parametro, id)."""
+    for f in facets or []:
+        param = f.get("facetParameter", padre)
+        for v in f.get("values", []):
+            if "values" in v:  # grupo anidado (ej. locationMainGroup -> locationCountry)
+                r = _buscar_facet([v], pais, param)
+                if r:
+                    return r
+            elif (v.get("descriptor") or "").strip().lower() == pais.lower() and "ountry" in param:
+                return param, v["id"]
+    return None
 
 
 def workday(cfg, keywords):
     import time
+    if _workday_bloqueado:
+        raise Bloqueado("Workday ya nos frenó en esta corrida; salteo para no empeorarlo")
     host, tenant, site = _parse_workday(cfg["url"])
     api = f"https://{host}/wday/cxs/{tenant}/{site}/jobs"
+
+    def pedir(body):
+        global _workday_bloqueado
+        time.sleep(1.5)  # ir despacio
+        try:
+            return _post(api, body, esperas=WORKDAY_ESPERAS).json()
+        except Bloqueado:
+            _workday_bloqueado = True
+            raise
+
     out, seen = [], set()
-    for kw in cfg.get("palabras", WORKDAY_KEYWORDS):
-        time.sleep(1)  # ir despacio para que Workday no corte
-        offset = 0
-        while offset < 100:  # Workday pagina de a 20
-            data = _post(api, {"appliedFacets": {}, "limit": 20, "offset": offset,
-                               "searchText": kw}).json()
-            items = data.get("jobPostings", [])
-            for j in items:
-                path = j.get("externalPath", "")
-                if not path or path in seen:
-                    continue
+
+    def agregar(items):
+        for j in items:
+            path = j.get("externalPath", "")
+            if path and path not in seen:
                 seen.add(path)
                 out.append(Job(path, j.get("title", ""), j.get("locationsText", ""),
                                f"https://{host}/{site}{path}"))
-            offset += 20
-            if offset >= data.get("total", 0) or not items:
+
+    primera = pedir({"appliedFacets": {}, "limit": 20, "offset": 0, "searchText": ""})
+    facet = _buscar_facet(primera.get("facets"))
+    if facet:
+        param, fid = facet
+        offset, total = 0, 1
+        while offset < min(total, 200):
+            d = pedir({"appliedFacets": {param: [fid]}, "limit": 20, "offset": offset, "searchText": ""})
+            total = d.get("total", 0)
+            agregar(d.get("jobPostings", []))
+            if not d.get("jobPostings"):
                 break
+            offset += 20
+        return out
+    if primera.get("facets"):
+        return out  # tiene filtro de países pero no figura Argentina: hoy no hay nada acá
+    # Sin filtros de país (raro): búsqueda por palabras, como antes
+    for kw in cfg.get("palabras", ["intern", "pasante", "trainee", "junior"]):
+        d = pedir({"appliedFacets": {}, "limit": 20, "offset": 0, "searchText": kw})
+        agregar(d.get("jobPostings", []))
     return out
 
 
 def workday_detalle(cfg, job):
     """Para avisos con "2 Locations": trae todas las ubicaciones del aviso."""
     host, tenant, site = _parse_workday(cfg["url"])
-    info = _get(f"https://{host}/wday/cxs/{tenant}/{site}{job.id}").json().get("jobPostingInfo", {})
+    if _workday_bloqueado:
+        return ""
+    info = _pedir("GET", f"https://{host}/wday/cxs/{tenant}/{site}{job.id}", headers=HEADERS,
+                  esperas=WORKDAY_ESPERAS).json().get("jobPostingInfo", {})
     locs = [info.get("location", "")] + list(info.get("additionalLocations") or [])
     pais = (info.get("country") or {}).get("descriptor", "")
     return " | ".join(x for x in locs + [pais] if x)
