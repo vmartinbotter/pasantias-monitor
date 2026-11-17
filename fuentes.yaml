@@ -88,35 +88,6 @@ filtros:
   excluir_estados: ["Descartada por mí"]
 
 # ------------------------------------------------------------------------------
-# Búsquedas abiertas: portales donde se busca SIN lista de empresas.
-# Llegan en el mail en un bloque aparte "🌐 Otras empresas".
-# ------------------------------------------------------------------------------
-busquedas_abiertas:
-  getonbrd:
-    activo: true
-    # Categorías de getonbrd.com que se revisan (todas tech)
-    categorias: [programming, data-science-analytics, sysadmin-devops-qa, mobile-developer,
-                 machine-learning-ai, cybersecurity, technical-support, innovation-agile]
-    max_paginas: 5            # 100 avisos por página, de los más nuevos a los más viejos
-    # Seniority de Get on Board que cuentan como "junior": 1 = sin experiencia, 2 = junior
-    seniority_junior: [1, 2]
-    # true = también avisos 100% remotos de cualquier lugar ("fully remote" en Get on Board).
-    # Los remotos que piden vivir en un país específico no entran.
-    incluir_remoto: true
-
-  # Portales de trabajo remoto (todos los avisos son remotos; solo entran los que
-  # aceptan gente de Argentina, LATAM o de cualquier lugar)
-  jobicy:
-    activo: true
-    geos: [argentina, latam, anywhere]
-  himalayas:
-    activo: true
-    max_paginas: 5            # 20 avisos por página
-  remotive:
-    activo: true
-    categorias: [software-dev, data, devops, qa]   # máx. 4: Remotive limita las consultas diarias
-
-# ------------------------------------------------------------------------------
 # Fuentes por empresa. El nombre tiene que coincidir con la columna "Empresa"
 # del Sheet (no importan mayúsculas, tildes ni espacios).
 #
