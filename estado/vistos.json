@@ -185,6 +185,10 @@
     "tipo": "greenhouse"
    }
   },
+  "digitasargentina": {
+   "fecha": "2026-11-18",
+   "fuente": null
+  },
   "direccionahr": {
    "fecha": "2026-11-17",
    "fuente": null
@@ -770,7 +774,7 @@
   "mercadolibre": 2,
   "microsoft": 2
  },
- "ultima_corrida": "2026-11-17",
+ "ultima_corrida": "2026-11-18",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
