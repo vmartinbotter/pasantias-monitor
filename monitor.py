@@ -35,6 +35,26 @@ from concurrent.futures import ThreadPoolExecutor
 from fuentes_lib import ADAPTERS, NO_LOCATION, PORTALES, Bloqueado, autodetectar, workday_detalle
 
 ROOT = Path(__file__).parent
+
+
+def cargar_env():
+    """En tu compu, los secrets van en un archivo .env (KEY=valor), que NO se sube a GitHub."""
+    f = ROOT / ".env"
+    if not f.exists():
+        return
+    for linea in f.read_text(encoding="utf-8").splitlines():
+        linea = linea.strip()
+        if linea and not linea.startswith("#") and "=" in linea:
+            k, v = linea.split("=", 1)
+            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+
+# En Windows la consola no siempre acepta emojis: forzamos UTF-8
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:  # noqa: BLE001
+        pass
 ESTADO = ROOT / "estado" / "vistos.json"
 DIAS_FALLA_PARA_AVISAR = 3
 DIAS_REINTENTO_AUTODETECCION = 7
@@ -48,6 +68,10 @@ def norm(s: str) -> str:
 # ------------------------------------------------------------------ Google Sheet
 def abrir_sheet():
     creds = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON")
+    archivo = os.environ.get("GOOGLE_SERVICE_ACCOUNT_FILE")  # en tu compu: ruta al clave.json
+    if not creds and archivo:
+        p = Path(archivo) if Path(archivo).is_absolute() else ROOT / archivo
+        creds = p.read_text(encoding="utf-8") if p.exists() else None
     sheet_id = os.environ.get("SHEET_ID")
     if not (creds and sheet_id):
         return None
@@ -267,7 +291,10 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--empresa", help="probar solo esta empresa")
     ap.add_argument("--probar-aviso", action="store_true", help="manda un mensaje de prueba y sale")
+    ap.add_argument("--solo", help="revisar solo fuentes de este tipo (ej: workday, en tu compu)")
+    ap.add_argument("--sin", help="saltear fuentes de este tipo (ej: workday, en GitHub)")
     args = ap.parse_args()
+    cargar_env()
 
     if args.probar_aviso:
         print("Secrets presentes:", {k: bool(os.environ.get(k)) for k in (
@@ -286,6 +313,23 @@ def main():
     keywords = filtros["palabras_busqueda"]
     fuentes = {norm(k): (k, v) for k, v in (cfg.get("empresas") or {}).items() if v}
 
+    def tipo_ok(src):
+        if args.solo:
+            return src.get("tipo") == args.solo
+        if args.sin:
+            return src.get("tipo") != args.sin
+        return True
+    # Empresas cuyas fuentes se revisan en OTRO lado (ej. Workday en tu compu):
+    # acá se ignoran por completo (no se marcan "sin fuente" ni se desmarcan en el Sheet)
+    otro_lado = set()
+    for k, (n, v) in list(fuentes.items()):
+        lista = [x for x in (v if isinstance(v, list) else [v]) if tipo_ok(x)]
+        if not lista:
+            otro_lado.add(k)
+            del fuentes[k]
+        else:
+            fuentes[k] = (n, lista)
+
     ws = abrir_sheet()
     if ws:
         empresas, col = empresas_del_sheet(ws, set(filtros.get("excluir_estados", [])))
@@ -296,6 +340,9 @@ def main():
 
     if args.empresa:
         empresas = {k: v for k, v in empresas.items() if k == norm(args.empresa)}
+    empresas = {k: v for k, v in empresas.items() if k not in otro_lado}
+    if args.solo:  # en modo --solo solo interesan las empresas con ese tipo de fuente
+        empresas = {k: v for k, v in empresas.items() if k in fuentes}
 
     estado = json.loads(ESTADO.read_text()) if ESTADO.exists() else {}
     vistos = estado.setdefault("vistos", {})
@@ -305,7 +352,7 @@ def main():
     # ---- empresas nuevas del Sheet sin fuente: intento detectarlas solas
     auto = estado.setdefault("auto_fuentes", {})
     hoy = date.today()
-    pendientes = [(k, v[0]) for k, v in empresas.items() if k not in fuentes and (
+    pendientes = [] if args.solo else [(k, v[0]) for k, v in empresas.items() if k not in fuentes and (
         k not in auto or (not auto[k].get("fuente") and
                           (hoy - date.fromisoformat(auto[k]["fecha"])).days >= DIAS_REINTENTO_AUTODETECCION))]
     detectadas = []
@@ -318,7 +365,7 @@ def main():
                     detectadas.append(f"{nombre}: {src['tipo']} / {src['slug']}")
     auto_keys = set()
     for k, a in auto.items():
-        if a.get("fuente") and k not in fuentes:
+        if a.get("fuente") and k not in fuentes and tipo_ok(a["fuente"]) and k in empresas:
             fuentes[k] = (k, a["fuente"])
             auto_keys.add(k)
 
@@ -382,7 +429,7 @@ def main():
 
     # ---- búsquedas abiertas (portales, sin lista de empresas)
     for clave, conf in (cfg.get("busquedas_abiertas") or {}).items():
-        if not (conf and conf.get("activo")) or args.empresa or clave not in PORTALES:
+        if not (conf and conf.get("activo")) or args.empresa or args.solo or clave not in PORTALES:
             continue
         portal, buscar = PORTALES[clave]
         fk = f"_{clave}"

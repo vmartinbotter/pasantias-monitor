@@ -50,7 +50,7 @@ jobs:
 
       - name: Buscar pasantías nuevas
         if: github.event_name == 'schedule' || github.event.inputs.modo == 'normal'
-        run: python monitor.py
+        run: python monitor.py --sin workday   # Workday bloquea a GitHub: lo revisa tu compu
 
       - name: Guardar estado
         if: github.event_name == 'schedule' || github.event.inputs.modo == 'normal'

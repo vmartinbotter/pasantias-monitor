@@ -2,3 +2,4 @@ __pycache__/
 *.json
 !estado/vistos.json
 .env
+estado/log_local.txt

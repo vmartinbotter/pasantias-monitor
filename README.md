@@ -38,7 +38,7 @@ Se usa cada canal que tenga sus secrets cargados. Si no cargás los de un canal,
 1. Agendá el número **+34 694 25 79 72**. Verificá en https://www.callmebot.com/blog/free-api-whatsapp-messages/ que siga siendo ese.
 2. Mandale por WhatsApp: `I allow callmebot to send me messages`
 3. Te responde con tu **apikey**.
-4. Cargá estos secrets: `WHATSAPP_PHONE` = tu número con código de país (por ejemplo `+5491112345678`), `WHATSAPP_APIKEY` = la apikey.
+4. Cargá estos secrets: `WHATSAPP_PHONE` = tu número solo con dígitos, igual que en el mensaje de CallMeBot (por ejemplo `5491112345678`), `WHATSAPP_APIKEY` = la apikey.
 
 **✈️ Telegram**
 1. Hablale a **@BotFather**, mandá `/newbot` y copiá el token.
@@ -101,6 +101,15 @@ python monitor.py --dry-run --empresa Sanofi
 ```
 
 ## Notas
+- **El Sheet se lee en cada corrida.** Si agregás una empresa, al día siguiente el script prueba solo si usa Greenhouse, Lever, Ashby o SmartRecruiters. Si la encuentra, empieza a monitorearla y te avisa en el mensaje. Si no, lo vuelve a intentar una vez por semana. Las que no detecta sola (Workday, portales propios) se agregan a mano en `fuentes.yaml`.
+- **El Sheet refleja lo que está abierto hoy.** Si una empresa ya no tiene pasantías en BA, el script la desmarca, pero solo si la había marcado él (Estado = "Programa abierto"). Si vos cambiaste el Estado (CV enviado, Entrevista…), esa fila no se toca.
 - `estado/vistos.json` guarda los avisos que ya te notificó. Si lo borrás, te vuelve a avisar todo.
 - Si una fuente falla 3 días seguidos, te llega un aviso para que la revises.
 - GitHub pausa los crons de repos sin actividad por 60 días. Como el script commitea el estado todos los días, eso no debería pasar.
+
+
+## Workday desde tu compu
+Workday bloquea a los servidores de GitHub, así que GitHub corre con `--sin workday` y tu compu revisa solo Workday:
+- `correr_workday.bat`: hace `git pull`, corre `python monitor.py --solo workday` y sube el estado. El log queda en `estado/log_local.txt`.
+- `instalar_tarea.ps1`: lo programa en Windows todos los días a las 10:00. Si la compu estaba apagada, corre apenas la prendés.
+- `.env`: los secrets en tu compu (copialo de `.env.ejemplo`). No se sube a GitHub.
