@@ -772,9 +772,11 @@
  "fallas": {
   "delltechnologies": 2,
   "mercadolibre": 2,
-  "microsoft": 2
+  "microsoft": 2,
+  "nvidia": 1,
+  "unilever": 1
  },
- "ultima_corrida": "2026-11-24",
+ "ultima_corrida": "2026-11-25",
  "vistos": {
   "_getonbrd": {
    "analytics-engineer-jr-galilei-remote": "2026-10-09",
@@ -976,6 +978,7 @@
    "156242": "2026-10-22"
   },
   "_remotive": {},
+  "abbot": {},
   "agileengine": {},
   "aleph": {
    "48cd3a55-7a1f-4d45-a580-374857db5d47": "2026-10-09"
@@ -984,10 +987,12 @@
    "10512594": "2026-09-26",
    "10541373": "2026-09-28"
   },
+  "bayer": {},
   "bcg": {},
   "boschgroup": {
    "744000151686069": "2026-10-04"
   },
+  "bristolmyerssquibb": {},
   "brubank": {},
   "cocacola": {
    "/job/Argentina---Buenos-Aires/CPS-AR-Operador-de-Produccin-Interna_R-146217": "2026-09-29"
@@ -998,9 +1003,13 @@
   "disney": {},
   "dlocal": {},
   "endava": {},
+  "ge": {},
+  "gehealthcare": {},
   "generalmotors": {},
   "gofundme": {},
+  "gsk": {},
   "intel": {},
+  "johnsonjohnson": {},
   "kavak": {},
   "kimberlyclark": {
    "/job/Buenos-Aires-Argentina/Pasante-de-Recursos-Humanos_886105": "2026-10-03"
@@ -1011,6 +1020,7 @@
   "metlife": {},
   "mondelez": {},
   "mongodb": {},
+  "msd": {},
   "nike": {},
   "novartis": {},
   "nvidia": {},
@@ -1037,6 +1047,7 @@
   },
   "shell": {},
   "snowflake": {},
+  "thermofisherscientific": {},
   "visa": {},
   "vmware": {},
   "warnerbros": {},
